@@ -11,6 +11,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    .logo-agz{
+  height:70px;
+  width:auto;
+  object-fit:contain;
+  transition:.2s ease;
+}
+
+.logo-agz:hover{
+  transform:scale(1.03);
+}
+
+@media(max-width:768px){
+  .logo-agz{
+    height:55px;
+  }
+}
     :root{
       --text:#0f172a;
       --muted:#475569;
@@ -143,10 +159,13 @@
   <header id="top" data-open="false">
     <div class="container">
       <div class="nav">
-        <a class="brand" href="#top" aria-label="Retour en haut">
-          <span class="brand-mark">AGZ</span>
-          <span>AGZ WEB</span>
-        </a>
+       <a class="brand" href="#top" aria-label="Retour en haut">
+  <img 
+    src="https://agzweb.github.io/fr/logo.png" 
+    alt="Logo AGZ WEB"
+    class="logo-agz"
+  >
+</a>
 
         <div class="nav-right">
           <nav class="navlinks" aria-label="Navigation principale">
