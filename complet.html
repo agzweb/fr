@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AGZ Web — Tarifs création boutique Shopify</title>
+
+  <style>
+    :root{
+      --text:#0f172a;
+      --muted:#475569;
+      --accent:#2563eb;
+      --accent2:#7c3aed;
+      --btn:#2563eb;
+      --btn-dark:#111827;
+      --btn-text:#ffffff;
+      --bg:#f8fafc;
+      --bg2:#e0f2fe;
+      --card:rgba(255,255,255,.72);
+      --stroke:rgba(15,23,42,.14);
+      --shadow:0 18px 48px rgba(15,23,42,.14);
+      --radius:18px;
+      --radius2:28px;
+      --max:1120px;
+      --shine:radial-gradient(720px 300px at 14% 8%, rgba(255,255,255,.78), transparent 62%);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1050px 660px at 12% 8%, rgba(37,99,235,.20), transparent 56%),
+        radial-gradient(950px 620px at 86% 12%, rgba(124,58,237,.18), transparent 58%),
+        radial-gradient(760px 420px at 52% 90%, rgba(14,165,233,.16), transparent 58%),
+        linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);
+      line-height:1.55;
+    }
+    img{max-width:100%;height:auto;display:block}
+    .wrap{max-width:var(--max);margin:0 auto;padding:18px 18px 78px}
+
+    .site-header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(14px);
+      background:rgba(248,250,252,.90);
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav-wrap{max-width:var(--max);margin:0 auto;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-weight:950;letter-spacing:-.3px;font-size:1.08rem}
+    .brand-mark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 12px 28px rgba(37,99,235,.22);display:grid;place-items:center;color:white;font-weight:950}
+    .menu{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .nav-link{color:var(--text);text-decoration:none;font-weight:850;padding:10px 14px;border-radius:999px;border:1px solid transparent;transition:.18s ease}
+    .nav-link:hover{background:rgba(37,99,235,.10);border-color:rgba(37,99,235,.18);color:var(--accent)}
+    .nav-cta{background:var(--btn);color:var(--btn-text);box-shadow:0 12px 26px rgba(37,99,235,.22)}
+    .nav-cta:hover{background:#1d4ed8;color:white}
+    @media(max-width:860px){.menu{display:none}}
+
+    .card{background:var(--card);border:1px solid var(--stroke);border-radius:var(--radius2);box-shadow:var(--shadow);backdrop-filter:blur(12px);overflow:hidden;position:relative}
+    .card::before{content:"";position:absolute;inset:0;background:var(--shine);pointer-events:none;z-index:0}
+    .card>*{position:relative;z-index:1}
+
+    .hero{display:grid;grid-template-columns:1.12fr .88fr;gap:18px;margin-top:18px;align-items:stretch}
+    @media(max-width:930px){.hero{grid-template-columns:1fr}}
+    .hero-left{padding:32px 28px 28px}
+    .badge{display:inline-flex;align-items:center;gap:10px;width:fit-content;padding:8px 12px;border-radius:999px;border:1px solid rgba(37,99,235,.24);background:rgba(37,99,235,.10);font-weight:850;color:#1e40af}
+    .badge i{width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(37,99,235,.14)}
+    h1{margin:14px 0 12px;font-size:clamp(33px,5vw,60px);line-height:1.02;letter-spacing:-1.25px}
+    .gradient-text{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .sub{margin:0;color:var(--muted);font-size:1.08rem;max-width:67ch}
+    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .pill{padding:9px 12px;border-radius:999px;border:1px dashed rgba(15,23,42,.18);background:rgba(255,255,255,.44);font-weight:750;color:var(--muted)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;font-weight:950;padding:13px 18px;border-radius:999px;border:1px solid transparent;transition:.18s ease}
+    .btn-primary{background:var(--btn);color:white;box-shadow:0 16px 34px rgba(37,99,235,.25)}
+    .btn-dark{background:var(--btn-dark);color:white;box-shadow:0 16px 34px rgba(17,24,39,.18)}
+    .btn-soft{background:rgba(255,255,255,.62);color:var(--text);border-color:var(--stroke)}
+    .btn:hover{transform:translateY(-1px);filter:brightness(1.02)}
+    .hero-right{padding:18px}
+    .imgbox{border-radius:var(--radius2);overflow:hidden;min-height:370px;border:1px solid rgba(15,23,42,.10);box-shadow:0 14px 32px rgba(15,23,42,.12);background:rgba(255,255,255,.36)}
+    .imgbox img{width:100%;height:370px;object-fit:cover}
+
+    .quick-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .stat{padding:16px;border-radius:22px;background:rgba(255,255,255,.54);border:1px solid var(--stroke)}
+    .stat b{font-size:1.5rem;display:block;letter-spacing:-.5px}.stat span{color:var(--muted);font-weight:750}
+    @media(max-width:720px){.quick-stats{grid-template-columns:1fr}}
+
+    .section{margin-top:30px}
+    .section-head{display:flex;gap:12px;margin:18px 0 12px}
+    .section-banner{flex:1;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px;border-radius:var(--radius2);border:1px solid var(--stroke);background:rgba(255,255,255,.48);box-shadow:0 12px 30px rgba(15,23,42,.09);overflow:hidden;position:relative}
+    .section-banner::after{content:"";position:absolute;inset:0;background:radial-gradient(650px 260px at 86% 8%, rgba(37,99,235,.18), transparent 62%);pointer-events:none}
+    .section-title{margin:0;font-size:1.45rem;font-weight:950;letter-spacing:-.3px}.section-sub{margin:3px 0 0;color:var(--muted)}
+    .section-media{width:118px;min-width:118px;height:78px;border-radius:18px;overflow:hidden;border:1px solid rgba(15,23,42,.12);box-shadow:0 10px 24px rgba(15,23,42,.10);z-index:1}.section-media img{width:100%;height:100%;object-fit:cover}
+    @media(max-width:640px){.section-banner{align-items:flex-start}.section-media{display:none}}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-12{grid-column:span 12}
+    @media(max-width:960px){.span-4,.span-6{grid-column:span 12}}
+    .offer{padding:18px;display:flex;flex-direction:column;min-height:100%;transition:.16s ease}.offer:hover{transform:translateY(-2px);filter:brightness(1.01)}
+    .popular{border-color:rgba(37,99,235,.34);box-shadow:0 22px 58px rgba(37,99,235,.18)}
+    .tag{display:inline-flex;width:fit-content;padding:7px 10px;border-radius:999px;background:rgba(37,99,235,.10);border:1px solid rgba(37,99,235,.18);color:#1e40af;font-weight:900;font-size:.88rem}
+    .offer h3{margin:12px 0 4px;font-size:1.24rem;letter-spacing:-.2px}.offer p{color:var(--muted);margin:0 0 12px}.price{font-size:2.25rem;line-height:1;font-weight:1000;letter-spacing:-1px;margin:6px 0 6px}.price small{font-size:.95rem;color:var(--muted);font-weight:850}
+    .list{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:8px}.list li{padding:10px 12px;border-radius:15px;border:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.42);font-weight:760;color:var(--text)}
+    .list li::before{content:"✓";font-weight:1000;color:var(--accent);margin-right:8px}.hint{margin-top:auto;padding-top:14px;color:var(--muted);font-size:.95rem}
+
+    .steps{counter-reset:step;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{padding:18px}.step::after{counter-increment:step;content:"0" counter(step);position:absolute;right:18px;top:14px;font-weight:1000;color:rgba(37,99,235,.18);font-size:2.1rem}.step h3{margin:0 0 6px;font-size:1.08rem}.step p{margin:0;color:var(--muted)}
+    @media(max-width:920px){.steps{grid-template-columns:1fr 1fr}}@media(max-width:580px){.steps{grid-template-columns:1fr}}
+
+    .option-row{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:13px 14px;border-radius:16px;border:1px solid rgba(15,23,42,.11);background:rgba(255,255,255,.42)}
+    .option-row b{display:block}.option-row small{color:var(--muted);font-weight:700}.option-price{font-weight:1000;color:var(--accent);white-space:nowrap}
+
+    .cta{padding:24px;display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:center}.cta h2{margin:0 0 8px;font-size:clamp(24px,3vw,36px);letter-spacing:-.7px}.cta p{margin:0;color:var(--muted)}.cta-img{border-radius:24px;overflow:hidden;border:1px solid var(--stroke);box-shadow:0 12px 28px rgba(15,23,42,.12)}.cta-img img{width:100%;height:240px;object-fit:cover}
+    @media(max-width:860px){.cta{grid-template-columns:1fr}.cta-img{display:none}}
+    footer{margin-top:26px;text-align:center;color:var(--muted);font-weight:750}
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="#top" aria-label="Accueil"><span class="brand-mark">AGZ</span><span>AGZ Web</span></a>
+      <nav class="menu" aria-label="Navigation principale">
+        <a class="nav-link" href="#offres">Offres</a>
+        <a class="nav-link" href="#inclus">Inclus</a>
+        <a class="nav-link" href="#options">Options</a>
+        <a class="nav-link nav-cta" href="#contact">Demander un devis</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card hero-left">
+        <div class="badge"><i></i> Création boutique Shopify clé en main</div>
+        <h1>Votre boutique en ligne <span class="gradient-text">prête à vendre</span>.</h1>
+        <p class="sub">Une boutique Shopify professionnelle, claire et rassurante, pensée pour transformer vos visiteurs en clients : design, pages essentielles, produits, parcours d’achat et mise en ligne.</p>
+        <div class="pill-row">
+          <span class="pill">Design responsive mobile</span>
+          <span class="pill">Paiement sécurisé</span>
+          <span class="pill">Mise en ligne accompagnée</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#offres">Voir les tarifs</a>
+          <a class="btn btn-dark" href="#process">Découvrir les étapes</a>
+        </div>
+        <div class="quick-stats">
+          <div class="stat"><b>dès 490€</b><span>pour démarrer</span></div>
+          <div class="stat"><b>100%</b><span>personnalisable</span></div>
+          <div class="stat"><b>Shopify</b><span>simple à gérer</span></div>
+        </div>
+      </div>
+      <aside class="card hero-right">
+        <div class="imgbox"><img src="https://agzweb.github.io/fr/carte1.png" alt="Création boutique Shopify professionnelle" loading="lazy"></div>
+      </aside>
+    </section>
+
+    <section class="section" id="offres">
+      <div class="section-head"><div class="section-banner"><div><h2 class="section-title">Offres Shopify</h2><p class="section-sub">Trois formules selon votre niveau d’ambition et le nombre de produits à lancer.</p></div><div class="section-media"><img src="https://agzweb.github.io/fr/carte1.png" alt=""></div></div></div>
+      <div class="grid">
+        <article class="card offer span-4">
+          <span class="tag">Lancement</span>
+          <h3>Shopify Starter</h3>
+          <p>Idéal pour lancer une première boutique propre et crédible.</p>
+          <div class="price">490€ <small>TTC</small></div>
+          <ul class="list">
+            <li>Installation et configuration Shopify</li>
+            <li>Page accueil personnalisée</li>
+            <li>Jusqu’à 10 produits intégrés</li>
+            <li>Pages contact, livraison, retours</li>
+            <li>Configuration moyens de paiement</li>
+            <li>Formation rapide à la gestion</li>
+          </ul>
+          <p class="hint">Parfait pour tester votre marché sans exploser votre budget.</p>
+        </article>
+
+        <article class="card offer span-4 popular">
+          <span class="tag">Le plus demandé</span>
+          <h3>Shopify Business</h3>
+          <p>La formule complète pour vendre sérieusement dès le lancement.</p>
+          <div class="price">790€ <small>TTC</small></div>
+          <ul class="list">
+            <li>Design complet de la boutique</li>
+            <li>Accueil, collections, produit, panier</li>
+            <li>Jusqu’à 30 produits intégrés</li>
+            <li>Menus, filtres et collections</li>
+            <li>Mentions légales, CGV, confidentialité</li>
+            <li>Optimisation mobile et rassurance</li>
+            <li>Connexion domaine et mise en ligne</li>
+          </ul>
+          <p class="hint">Le meilleur équilibre entre image professionnelle, conversion et autonomie.</p>
+        </article>
+
+        <article class="card offer span-4">
+          <span class="tag">Premium</span>
+          <h3>Shopify Performance</h3>
+          <p>Pour une boutique plus travaillée, avec une vraie stratégie de vente.</p>
+          <div class="price">1190€ <small>TTC</small></div>
+          <ul class="list">
+            <li>Direction artistique avancée</li>
+            <li>Jusqu’à 60 produits intégrés</li>
+            <li>Pages marque, FAQ et avis clients</li>
+            <li>Emails Shopify de base personnalisés</li>
+            <li>Structure SEO des collections</li>
+            <li>Applications essentielles configurées</li>
+            <li>Checklist de lancement complète</li>
+          </ul>
+          <p class="hint">Pensé pour maximiser la confiance et augmenter le panier moyen.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="inclus">
+      <div class="section-head"><div class="section-banner"><div><h2 class="section-title">Ce qui est inclus</h2><p class="section-sub">Une boutique claire, fiable et prête à accueillir vos premiers clients.</p></div><div class="section-media"><img src="https://agzweb.github.io/fr/carte1.png" alt=""></div></div></div>
+      <div class="grid">
+        <article class="card offer span-6"><h3>Une expérience d’achat rassurante</h3><ul class="list"><li>Navigation simple et logique</li><li>Fiches produits lisibles et vendeuses</li><li>Boutons d’achat visibles</li><li>Blocs de réassurance : paiement, livraison, retours</li><li>Design adapté smartphone, tablette et ordinateur</li></ul></article>
+        <article class="card offer span-6"><h3>Une base solide pour vendre</h3><ul class="list"><li>Configuration des taxes et livraison selon besoin</li><li>Paramétrage des moyens de paiement disponibles</li><li>Structure des collections</li><li>Optimisation des titres et textes principaux</li><li>Accompagnement jusqu’à la mise en ligne</li></ul></article>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="section-head"><div class="section-banner"><div><h2 class="section-title">Un déroulé simple et rassurant</h2><p class="section-sub">Vous savez où vous allez, à chaque étape du projet.</p></div><div class="section-media"><img src="https://agzweb.github.io/fr/carte1.png" alt=""></div></div></div>
+      <div class="steps">
+        <article class="card step"><h3>Analyse</h3><p>On définit votre activité, vos produits, vos objectifs et le style attendu.</p></article>
+        <article class="card step"><h3>Structure</h3><p>On organise les pages, collections, menus, parcours client et éléments de confiance.</p></article>
+        <article class="card step"><h3>Création</h3><p>Je construis la boutique, intègre les contenus et prépare l’expérience d’achat.</p></article>
+        <article class="card step"><h3>Paiement si satisfait</h3><p>Vous validez le rendu final avant le règlement et la mise en ligne.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="options">
+      <div class="section-head"><div class="section-banner"><div><h2 class="section-title">Options utiles</h2><p class="section-sub">Ajoutez uniquement ce dont vous avez besoin pour booster votre boutique.</p></div><div class="section-media"><img src="https://agzweb.github.io/fr/carte1.png" alt=""></div></div></div>
+      <div class="grid">
+        <div class="card offer span-6">
+          <div class="option-row"><div><b>Produit supplémentaire</b><small>Au-delà du nombre inclus dans la formule</small></div><span class="option-price">8€ / produit</span></div>
+          <div class="option-row"><div><b>Pack visuels & photos</b><small>Retouches légères, recadrage, harmonisation</small></div><span class="option-price">45€</span></div>
+          <div class="option-row"><div><b>Logo simple</b><small>Création d’un logo propre pour démarrer</small></div><span class="option-price">49€</span></div>
+          <div class="option-row"><div><b>Bannière promotionnelle</b><small>Création d’un visuel pour mettre en avant une offre</small></div><span class="option-price">35€</span></div>
+        </div>
+        <div class="card offer span-6">
+          <div class="option-row"><div><b>Rédaction fiche produit</b><small>Texte vendeur, bénéfices, détails, appel à l’action</small></div><span class="option-price">15€ / fiche</span></div>
+          <div class="option-row"><div><b>Page supplémentaire</b><small>À propos, guide des tailles, FAQ avancée…</small></div><span class="option-price">60€</span></div>
+          <div class="option-row"><div><b>Configuration newsletter</b><small>Bloc d’inscription + outil email compatible</small></div><span class="option-price">60€</span></div>
+          <div class="option-row"><div><b>Suivi post-lancement</b><small>Petites modifications et conseils après mise en ligne</small></div><span class="option-price">90€ / mois</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="card cta">
+        <div>
+          <h2>Vous voulez une boutique qui donne envie d’acheter ?</h2>
+          <p>Envoyez votre idée, vos produits et vos inspirations. Je vous propose la formule la plus adaptée, sans vous vendre du superflu.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="mailto:contact@agzweb.fr?subject=Demande%20de%20devis%20Shopify">Demander un devis Shopify</a><a class="btn btn-soft" href="#offres">Comparer les offres</a></div>
+        </div>
+        <div class="cta-img"><img src="https://agzweb.github.io/fr/carte1.png" alt="Boutique Shopify clé en main"></div>
+      </div>
+    </section>
+
+    <footer>Tarifs indicatifs — hors abonnement Shopify, nom de domaine, applications payantes et frais de paiement.</footer>
+  </main>
+</body>
+</html>
