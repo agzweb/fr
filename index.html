@@ -1,0 +1,488 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AGZ WEB — Création de site web & boutique Shopify</title>
+  <meta name="description" content="AGZ WEB crée des sites vitrines simples et des sites complets avec Shopify. Design professionnel, textes vendeurs, site responsive et accompagnement clair." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --text:#0f172a;
+      --muted:#475569;
+      --accent:#2563eb;
+      --accent2:#7c3aed;
+      --btn:#2563eb;
+      --btn-dark:#111827;
+      --btn-text:#ffffff;
+      --bg:#f8fafc;
+      --bg2:#e0f2fe;
+      --card:rgba(255,255,255,.72);
+      --stroke:rgba(15,23,42,.14);
+      --shadow:0 18px 48px rgba(15,23,42,.14);
+      --radius:18px;
+      --radius2:28px;
+      --max:1120px;
+      --img:url('https://cdn.shopify.com/s/files/1/0726/0690/8753/files/ChatGPT_Image_15_dec._2025_10_31_32.png?v=1765791194');
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(950px 520px at 8% -8%, rgba(37,99,235,.20), transparent 62%),
+        radial-gradient(850px 520px at 108% 8%, rgba(124,58,237,.16), transparent 58%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    .container{width:min(var(--max), calc(100% - 48px));margin-inline:auto;}
+    .highlight{color:var(--accent);font-weight:900;}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(248,250,252,.84);
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:18px;}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:-.04em;font-size:24px;}
+    .brand-mark{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;display:grid;place-items:center;box-shadow:0 14px 30px rgba(37,99,235,.28);font-family:"Space Grotesk",sans-serif;font-weight:900;}
+    .nav-right{display:flex;align-items:center;gap:18px;}
+    .navlinks{display:flex;align-items:center;gap:18px;}
+    .navlinks a{position:relative;font-weight:850;padding:10px 6px;color:#1e293b;}
+    .navlinks a::after{content:"";position:absolute;left:6px;right:6px;bottom:6px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),var(--accent2),transparent);transform:scaleX(0);transition:transform .2s ease;}
+    .navlinks a:hover::after{transform:scaleX(1);}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:999px;background:linear-gradient(135deg,var(--btn),var(--accent2));color:var(--btn-text);font-weight:950;border:1px solid rgba(255,255,255,.35);box-shadow:0 15px 34px rgba(37,99,235,.25);transition:transform .15s ease, box-shadow .15s ease;cursor:pointer;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 20px 42px rgba(37,99,235,.31);}
+    .btn.secondary{background:linear-gradient(135deg,var(--btn-dark),#334155);}
+    .btn.light{background:rgba(255,255,255,.72);color:var(--text);border:1px solid var(--stroke);box-shadow:0 12px 26px rgba(15,23,42,.10);}
+    .wa-dot{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.20);}
+    .burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.55);align-items:center;justify-content:center;cursor:pointer;}
+    .burger span,.burger span::before,.burger span::after{width:18px;height:2px;background:var(--text);display:block;}
+    .burger span{position:relative;}.burger span::before,.burger span::after{content:"";position:absolute;left:0;}.burger span::before{top:-6px;}.burger span::after{top:6px;}
+    .mobile-panel{display:none;padding:10px 0 18px;} header[data-open="true"] .mobile-panel{display:block;} .mobile-panel .navlinks{flex-direction:column;align-items:flex-start;gap:10px;}
+
+    section{padding:84px 0;scroll-margin-top:110px;}
+    .section-title{font-family:"Space Grotesk",Inter,sans-serif;font-weight:800;letter-spacing:-.04em;font-size:clamp(30px,3.4vw,46px);line-height:1.06;margin:0 0 10px;}
+    .section-kicker{color:var(--muted);font-size:17px;margin:0 0 26px;max-width:75ch;}
+
+    .hero{padding-top:34px;}
+    .banner{position:relative;border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.70);box-shadow:var(--shadow);background:radial-gradient(900px 520px at 18% 18%, rgba(37,99,235,.18), transparent 62%),radial-gradient(820px 520px at 92% 16%, rgba(124,58,237,.16), transparent 60%),linear-gradient(135deg, rgba(255,255,255,.96), rgba(224,242,254,.82));}
+    .banner-inner{position:relative;display:grid;grid-template-columns:1.18fr .82fr;align-items:stretch;min-height:560px;z-index:1;}
+    .banner-left{padding:52px 42px;display:flex;flex-direction:column;justify-content:center;gap:16px;}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;width:max-content;padding:9px 12px;border-radius:999px;background:rgba(37,99,235,.10);border:1px solid rgba(37,99,235,.18);color:#1d4ed8;font-weight:900;}
+    .headline{font-family:"Space Grotesk",Inter,sans-serif;font-weight:900;font-size:clamp(38px,4.8vw,68px);letter-spacing:-.06em;line-height:.98;margin:0;}
+    .lead{margin:0;font-size:18px;color:#334155;max-width:68ch;}
+    .pill{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+    .tag{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.62);border:1px solid var(--stroke);box-shadow:0 10px 22px rgba(15,23,42,.06);font-weight:800;color:#1e293b;}
+    .dot{width:9px;height:9px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 0 4px rgba(37,99,235,.12);}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;}
+    .banner-right{position:relative;display:flex;align-items:center;justify-content:center;padding:22px 22px 22px 0;}
+    .portrait{width:100%;height:100%;min-height:520px;border-radius:28px;overflow:hidden;border:1px solid rgba(15,23,42,.10);box-shadow:inset 0 0 0 1px rgba(255,255,255,.30), 0 18px 46px rgba(15,23,42,.14);position:relative;background-image:var(--img);background-size:cover;background-position:center;}
+    .portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.04),transparent 48%,rgba(15,23,42,.18));pointer-events:none;}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;}
+    .card{border-radius:var(--radius2);overflow:hidden;border:1px solid var(--stroke);background:var(--card);box-shadow:0 14px 30px rgba(15,23,42,.09);transition:transform .16s ease, box-shadow .16s ease;position:relative;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 22px 42px rgba(15,23,42,.14);}
+    .card .img{aspect-ratio:4/3;width:100%;object-fit:cover;}
+    .card .body{padding:18px 18px 20px;}
+    .card h3{margin:0 0 7px;font-family:"Space Grotesk",Inter,sans-serif;font-size:24px;letter-spacing:-.03em;}
+    .card p{margin:0;color:var(--muted);font-size:15px;}
+    .price{display:inline-flex;margin:14px 0 0;padding:8px 11px;border-radius:999px;background:rgba(37,99,235,.10);border:1px solid rgba(37,99,235,.16);color:#1d4ed8;font-weight:950;}
+    .linkrow{display:flex;align-items:center;justify-content:space-between;margin-top:14px;font-weight:900;color:var(--btn-dark);}
+    .arrow{width:34px;height:34px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(15,23,42,.18);background:rgba(255,255,255,.58);}
+
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;margin-top:22px;}
+    .panel{border-radius:var(--radius2);border:1px solid var(--stroke);background:var(--card);box-shadow:0 14px 30px rgba(15,23,42,.08);padding:22px;}
+    .panel h3,.panel h4{margin:0 0 10px;font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.03em;}
+    .panel p{margin:0;color:var(--muted);}
+    .story-img{width:100%;height:220px;object-fit:cover;border-radius:20px;margin-bottom:16px;box-shadow:0 12px 28px rgba(15,23,42,.14);}
+    .checklist{display:grid;gap:10px;margin-top:14px;padding:0;list-style:none;}
+    .checklist li{display:flex;gap:10px;color:#334155;font-weight:750;}.checklist li::before{content:"✓";color:var(--accent);font-weight:950;}
+
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px;}
+    .step{position:relative;overflow:hidden;border-radius:24px;border:1px solid var(--stroke);background:var(--card);box-shadow:0 12px 28px rgba(15,23,42,.08);padding:20px;min-height:170px;}
+    .step::before{content:"";position:absolute;width:125px;height:125px;right:-48px;top:-48px;border-radius:50%;background:rgba(124,58,237,.12);}
+    .step-num{display:inline-flex;min-width:50px;justify-content:center;padding:6px 10px;border-radius:999px;background:rgba(37,99,235,.10);color:var(--accent);font-weight:950;border:1px solid rgba(37,99,235,.16);margin-bottom:12px;}
+    .step h3{position:relative;margin:0;font-family:"Space Grotesk",Inter,sans-serif;font-size:20px;line-height:1.15;}
+    .step p{position:relative;margin:8px 0 0;color:var(--muted);font-size:14px;}
+
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;}
+    .review{border-radius:var(--radius2);border:1px solid var(--stroke);background:var(--card);box-shadow:0 12px 28px rgba(15,23,42,.08);padding:18px;}
+    .review .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}.review .name{font-weight:950;}.stars{letter-spacing:1px;color:#f59e0b;font-weight:950;font-size:14px;white-space:nowrap;}.review p{margin:0;color:var(--muted);font-size:15px;}
+
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;}
+    details{border-radius:var(--radius2);border:1px solid var(--stroke);background:var(--card);box-shadow:0 12px 28px rgba(15,23,42,.06);padding:15px 16px;}
+    summary{cursor:pointer;font-weight:950;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;}summary::-webkit-details-marker{display:none;}
+    summary .chev{width:34px;height:34px;border-radius:999px;border:1px solid rgba(15,23,42,.18);display:grid;place-items:center;background:rgba(255,255,255,.46);transition:transform .18s ease;flex:0 0 auto;}details[open] summary .chev{transform:rotate(180deg);}details p{margin:10px 0 0;color:var(--muted);font-size:15px;}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px;align-items:start;}
+    form{display:grid;gap:12px;}label{font-weight:850;font-size:14px;}input,select,textarea{width:100%;padding:12px;border-radius:14px;border:1px solid rgba(15,23,42,.18);background:rgba(255,255,255,.70);color:var(--text);font:inherit;outline:none;transition:border-color .15s ease, box-shadow .15s ease;}input:focus,select:focus,textarea:focus{border-color:rgba(37,99,235,.55);box-shadow:0 0 0 4px rgba(37,99,235,.12);}textarea{min-height:120px;resize:vertical;}.note{font-size:13px;color:#64748b;margin-top:8px;}
+
+    .footer{padding:46px 0 36px;border-top:1px solid var(--stroke);background:linear-gradient(180deg,rgba(248,250,252,.62),rgba(224,242,254,.90));}
+    .footer-wrap{border:1px solid rgba(255,255,255,.70);background:rgba(255,255,255,.48);border-radius:28px;box-shadow:0 18px 44px rgba(15,23,42,.11);overflow:hidden;}
+    .footer-inner{padding:26px 22px;display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:18px;align-items:start;}.footer-title{font-family:"Space Grotesk",Inter,sans-serif;font-weight:900;font-size:24px;margin:0;letter-spacing:-.04em;}.footer-desc{margin:8px 0 0;color:var(--muted);max-width:52ch;}.footer-col h4{margin:2px 0 10px;font-size:14px;letter-spacing:.2px;text-transform:uppercase;color:#475569;}.footer-links{display:flex;flex-direction:column;gap:10px;}.footer-links a{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(15,23,42,.12);background:rgba(255,255,255,.45);font-weight:850;}.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 22px 18px;border-top:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.30);}.footer-bottom .note{margin:0;}
+
+    @media (max-width:980px){.banner-inner{grid-template-columns:1fr}.banner-right{padding:0 18px 18px}.portrait{min-height:420px}.banner-left{padding:36px 24px 20px}.cards,.reviews,.faq,.contact-grid,.split,.footer-inner{grid-template-columns:1fr}.process{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;align-items:flex-start}}
+    @media (max-width:900px){.nav > .nav-right > nav.navlinks{display:none}.burger{display:flex}.mobile-panel nav.navlinks{display:flex}}
+    @media (max-width:680px){.nav{flex-direction:column;align-items:stretch}.brand{justify-content:center}.nav-right{justify-content:space-between}.container{width:min(var(--max), calc(100% - 32px))}section{padding:66px 0}.process{grid-template-columns:1fr}.headline{font-size:42px}.hero-actions .btn{width:100%}}
+  </style>
+</head>
+
+<body>
+  <header id="top" data-open="false">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Retour en haut">
+          <span class="brand-mark">AGZ</span>
+          <span>AGZ WEB</span>
+        </a>
+
+        <div class="nav-right">
+          <nav class="navlinks" aria-label="Navigation principale">
+            <a href="#offres">Offres</a>
+            <a href="#methode">Méthode</a>
+            <a href="#avis">Avis</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <a class="btn" href="mailto:kill-event@hotmail.com?subject=Demande%20de%20site%20web%20-%20AGZ%20WEB&body=Bonjour%20AGZ%20WEB%2C%0A%0AJe%20souhaite%20cr%C3%A9er%20un%20site%20web.%0AType%20de%20site%20%3A%20site%20vitrine%20simple%20/%20site%20complet%20Shopify%0AMon%20activit%C3%A9%20%3A%20%0AMon%20objectif%20%3A%20%0A%0AMerci%20%21">
+            <span class="wa-dot" aria-hidden="true"></span>
+            Demander un devis
+          </a>
+
+          <button class="burger" id="burger" aria-label="Menu mobile" aria-expanded="false"><span></span></button>
+        </div>
+      </div>
+
+      <div class="mobile-panel">
+        <nav class="navlinks" aria-label="Navigation mobile">
+          <a href="#offres">Offres</a><a href="#methode">Méthode</a><a href="#avis">Avis</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="banner">
+        <div class="banner-inner">
+          <div class="banner-left">
+            <div class="eyebrow"><span class="dot"></span> Création de site web qui vend vraiment</div>
+            <h1 class="headline">Votre site doit donner envie. <span class="highlight">Pas juste exister.</span></h1>
+            <p class="lead">
+              AGZ WEB crée des sites modernes, rapides et convaincants pour transformer vos visiteurs en clients :
+              <span class="highlight">site vitrine simple</span> pour présenter votre activité ou
+              <span class="highlight">site complet avec Shopify</span> pour vendre en ligne avec une boutique professionnelle.
+            </p>
+            <div class="pill" aria-label="Points forts">
+              <div class="tag"><span class="dot"></span>Design premium & responsive</div>
+              <div class="tag"><span class="dot"></span>Textes pensés pour convertir</div>
+              <div class="tag"><span class="dot"></span>Mise en ligne accompagnée</div>
+              <div class="tag"><span class="dot"></span>Shopify prêt à vendre</div>
+            </div>
+            <div class="hero-actions">
+              <a class="btn secondary" href="#offres">Voir les offres</a>
+              <a class="btn light" href="#contact">Parler de mon projet</a>
+            </div>
+          </div>
+          <div class="banner-right"><div class="portrait" aria-label="Illustration AGZ WEB"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="offres">
+    <div class="container">
+      <h2 class="section-title">Deux offres claires pour lancer votre présence en ligne</h2>
+      <p class="section-kicker">Pas besoin d’un site compliqué. Vous avez besoin d’un site beau, crédible, facile à comprendre et construit pour déclencher l’envie de vous contacter ou d’acheter.</p>
+
+      <div class="cards">
+        <article class="card">
+          <img class="img" src="https://cdn.shopify.com/s/files/1/0726/0690/8753/files/ChatGPT_Image_15_dec._2025_10_31_32.png?v=1765791194" alt="Site vitrine professionnel" loading="lazy">
+          <div class="body">
+            <h3>Site vitrine simple</h3>
+            <p>Idéal pour présenter votre activité, vos services, vos tarifs, vos avis et permettre aux clients de vous contacter rapidement.</p>
+            <span class="price">Pour artisans, indépendants, services & marques locales</span>
+            <div class="linkrow"><span>Créer ma vitrine</span><span class="arrow">➜</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="img" src="https://cdn.shopify.com/s/files/1/0726/0690/8753/files/ChatGPT_Image_15_dec._2025_10_31_32.png?v=1765791194" alt="Boutique Shopify complète" loading="lazy">
+          <div class="body">
+            <h3>Site complet Shopify</h3>
+            <p>Une boutique en ligne prête à vendre : pages clés, collections, fiches produits, tunnel d’achat, design rassurant et expérience client fluide.</p>
+            <span class="price">Pour vendre vos produits sans perdre des semaines</span>
+            <div class="linkrow"><span>Lancer ma boutique</span><span class="arrow">➜</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="img" src="https://cdn.shopify.com/s/files/1/0726/0690/8753/files/ChatGPT_Image_15_dec._2025_10_31_32.png?v=1765791194" alt="Optimisation et refonte de site" loading="lazy">
+          <div class="body">
+            <h3>Refonte & optimisation</h3>
+            <p>Votre site existe déjà mais ne donne pas confiance ? AGZ WEB améliore le design, les textes, la structure et les appels à l’action.</p>
+            <span class="price">Pour passer d’un site moyen à un site vendeur</span>
+            <div class="linkrow"><span>Améliorer mon site</span><span class="arrow">➜</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pourquoi">
+    <div class="container">
+      <h2 class="section-title">Un site web n’est pas une dépense. C’est votre meilleur commercial.</h2>
+      <p class="section-kicker">Disponible 24h/24, il présente votre offre, rassure vos prospects, répond aux objections et donne une raison claire de passer à l’action.</p>
+
+      <div class="split">
+        <div class="panel">
+          <img class="story-img" src="https://cdn.shopify.com/s/files/1/0726/0690/8753/files/ChatGPT_Image_15_dec._2025_10_31_32.png?v=1765791194" alt="Création de site web moderne" loading="lazy">
+          <h3>Ce que vos clients doivent ressentir</h3>
+          <p>En quelques secondes, votre site doit dire : “cette entreprise est sérieuse, je comprends ce qu’elle propose, j’ai envie de lui faire confiance”.</p>
+          <ul class="checklist">
+            <li>Une première impression professionnelle</li>
+            <li>Une offre claire et facile à choisir</li>
+            <li>Des boutons visibles pour demander un devis ou acheter</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <img class="story-img" src="https://cdn.shopify.com/s/files/1/0726/0690/8753/files/ChatGPT_Image_15_dec._2025_10_31_32.png?v=1765791194" alt="Boutique Shopify pensée pour vendre" loading="lazy">
+          <h3>Ce que AGZ WEB construit pour vous</h3>
+          <p>Un site qui met en valeur votre univers, explique votre valeur, supprime les doutes et guide le visiteur vers l’action la plus importante.</p>
+          <ul class="checklist">
+            <li>Structure de page persuasive</li>
+            <li>Design adapté à votre marque</li>
+            <li>Site lisible sur mobile, tablette et ordinateur</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="methode">
+    <div class="container">
+      <h2 class="section-title">Une méthode simple, rapide et rassurante</h2>
+      <p class="section-kicker">Vous n’avez pas besoin de tout savoir techniquement. AGZ WEB vous guide étape par étape, avec des choix simples et des explications claires.</p>
+
+      <div class="process">
+        <div class="step"><span class="step-num">01</span><h3>Analyse</h3><p>On clarifie votre activité, vos objectifs, vos clients et le type de site le plus adapté.</p></div>
+        <div class="step"><span class="step-num">02</span><h3>Structure</h3><p>On organise les pages, les messages importants et les appels à l’action pour convertir.</p></div>
+        <div class="step"><span class="step-num">03</span><h3>Création</h3><p>Design, textes, images, mise en page, Shopify si besoin : votre site prend forme.</p></div>
+        <div class="step"><span class="step-num">04</span><h3>Lancement</h3><p>Votre site est mis en ligne, vérifié sur mobile et prêt à être partagé à vos clients.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="avis">
+    <div class="container">
+      <h2 class="section-title">Ce que vos futurs clients doivent se dire</h2>
+      <p class="section-kicker">Un bon site inspire confiance avant même le premier échange.</p>
+      <div class="reviews">
+        <div class="review"><div class="top"><div class="name">“C’est clair.”</div><div class="stars">★★★★★</div></div><p>Le visiteur comprend immédiatement ce que vous proposez, pour qui, et pourquoi vous choisir plutôt qu’un concurrent.</p></div>
+        <div class="review"><div class="top"><div class="name">“Ça fait sérieux.”</div><div class="stars">★★★★★</div></div><p>Un design propre et cohérent donne confiance. Votre site devient une preuve de professionnalisme.</p></div>
+        <div class="review"><div class="top"><div class="name">“Je passe à l’action.”</div><div class="stars">★★★★★</div></div><p>Les boutons, les textes et la structure guident naturellement vers le devis, le contact ou l’achat.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">FAQ</h2>
+      <p class="section-kicker">Les réponses aux questions les plus fréquentes avant de créer votre site.</p>
+      <div class="faq">
+        <details><summary>Quelle offre choisir ? <span class="chev">⌄</span></summary><p>Le site vitrine simple est parfait pour présenter une activité et recevoir des demandes. Le site complet Shopify est adapté si vous voulez vendre des produits en ligne.</p></details>
+        <details><summary>Est-ce que le site sera adapté au mobile ? <span class="chev">⌄</span></summary><p>Oui. Le site est pensé pour être lisible et agréable sur téléphone, tablette et ordinateur.</p></details>
+        <details><summary>Est-ce que tu peux écrire les textes ? <span class="chev">⌄</span></summary><p>Oui. Les textes sont rédigés pour être clairs, professionnels et orientés conversion, afin de donner envie de vous contacter ou d’acheter.</p></details>
+        <details><summary>Pourquoi Shopify pour une boutique ? <span class="chev">⌄</span></summary><p>Shopify permet de gérer facilement les produits, commandes, paiements et collections avec une base solide pour vendre en ligne.</p></details>
+        <details><summary>Je n’ai pas encore toutes mes photos, c’est grave ? <span class="chev">⌄</span></summary><p>Non. On peut démarrer avec une direction visuelle propre, puis remplacer ou améliorer les visuels au fur et à mesure.</p></details>
+        <details><summary>Comment démarrer ? <span class="chev">⌄</span></summary><p>Envoyez un message avec votre activité, le type de site souhaité et votre objectif. AGZ WEB vous répond avec une proposition claire.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Prêt à avoir un site qui donne envie d’acheter ?</h2>
+      <p class="section-kicker">Décrivez votre projet en quelques lignes. AGZ WEB vous aide à transformer votre idée en site professionnel, convaincant et prêt à attirer vos clients.</p>
+      <div class="contact-grid">
+        <div class="panel">
+          <h4>Demande rapide</h4>
+          <p>Le plus simple : envoyez un message avec votre activité, votre objectif et le type de site souhaité.</p>
+          <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a class="btn" href="mailto:kill-event@hotmail.com?subject=Projet%20site%20web%20-%20AGZ%20WEB&body=Bonjour%20AGZ%20WEB%2C%0A%0AJe%20souhaite%20cr%C3%A9er%20un%20site%20web.%0A%0AMon%20activit%C3%A9%20%3A%20%0AType%20de%20site%20%3A%20site%20vitrine%20simple%20/%20site%20complet%20Shopify%0AMon%20objectif%20principal%20%3A%20%0ADeadline%20souhait%C3%A9e%20%3A%20%0A%0AMerci%20%21"><span class="wa-dot"></span>Écrire à AGZ WEB</a>
+            <a class="btn secondary" href="#offres">Revoir les offres</a>
+          </div>
+          <p class="note">Email : kill-event@hotmail.com — Remplacez cette adresse dans le code si besoin.</p>
+        </div>
+        <div class="panel">
+          <h4>Formulaire de contact</h4>
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div><label for="name">Nom</label><input id="name" name="name" type="text" placeholder="Votre nom" required></div>
+            <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="votre@email.com" required></div>
+            <div><label for="offer">Type de projet</label><select id="offer" name="offer"><option>Site vitrine simple</option><option>Site complet Shopify</option><option>Refonte / optimisation</option><option>Je ne sais pas encore</option></select></div>
+            <div><label for="message">Message</label><textarea id="message" name="message" placeholder="Présentez votre activité, votre objectif et ce que vous aimeriez vendre ou mettre en avant…" required></textarea></div>
+            <button class="btn" type="submit">Envoyer ma demande</button>
+            <div class="note">Remplacez YOUR_FORM_ID par votre identifiant Formspree.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-wrap">
+        <div class="footer-inner">
+          <div>
+            <p class="footer-title">AGZ WEB</p>
+            <p class="footer-desc">Création de sites vitrines simples et de boutiques Shopify complètes pour les entrepreneurs qui veulent un site beau, clair et vendeur.</p>
+          </div>
+          <div class="footer-col"><h4>Navigation</h4><div class="footer-links"><a href="#offres">Offres <small>↓</small></a><a href="#methode">Méthode <small>↓</small></a><a href="#faq">FAQ <small>↓</small></a></div></div>
+          <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:kill-event@hotmail.com">kill-event@hotmail.com <small>↗</small></a><a href="#contact">Demander un devis <small>↓</small></a></div></div>
+        </div>
+        <div class="footer-bottom"><p class="note">© <span id="year"></span> <strong>AGZ WEB</strong> — Tous droits réservés</p><a class="btn light" href="#top">↑ Retour en haut</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const header = document.querySelector("header");
+    const burger = document.getElementById("burger");
+    function setOpen(isOpen){header.dataset.open = isOpen ? "true" : "false";burger.setAttribute("aria-expanded", isOpen ? "true" : "false");}
+    burger.addEventListener("click", () => setOpen(header.dataset.open !== "true"));
+    document.querySelectorAll('.mobile-panel a[href^="#"]').forEach(a => a.addEventListener("click", () => setOpen(false)));
+    window.addEventListener("resize", () => { if (window.innerWidth > 860) setOpen(false); });
+  </script>
+  <!-- COOKIE BANNER -->
+<div id="cookie-banner" class="cookie-banner">
+  <div class="cookie-content">
+    <p>
+      Ce site utilise des cookies pour améliorer votre expérience utilisateur,
+      mesurer l’audience et optimiser les performances du site.
+    </p>
+
+    <div class="cookie-actions">
+      <button id="accept-cookies" class="cookie-btn accept">
+        Oui, j'accepte
+      </button>
+
+      <button id="decline-cookies" class="cookie-btn decline">
+        Non merci
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+.cookie-banner{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  right:20px;
+  z-index:9999;
+  display:flex;
+  justify-content:center;
+}
+
+.cookie-content{
+  max-width:900px;
+  width:100%;
+  background:#0f172a;
+  color:white;
+  padding:20px;
+  border-radius:18px;
+  box-shadow:0 10px 40px rgba(0,0,0,.35);
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.cookie-content p{
+  margin:0;
+  font-size:15px;
+  line-height:1.5;
+  flex:1;
+}
+
+.cookie-actions{
+  display:flex;
+  gap:12px;
+}
+
+.cookie-btn{
+  border:none;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:700;
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.cookie-btn:hover{
+  transform:translateY(-2px);
+}
+
+.cookie-btn.accept{
+  background:#2563eb;
+  color:white;
+}
+
+.cookie-btn.decline{
+  background:#1e293b;
+  color:white;
+  border:1px solid rgba(255,255,255,.15);
+}
+
+@media(max-width:700px){
+  .cookie-content{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .cookie-actions{
+    width:100%;
+  }
+
+  .cookie-btn{
+    width:100%;
+  }
+}
+</style>
+
+<script>
+const cookieBanner = document.getElementById("cookie-banner");
+
+if(localStorage.getItem("cookie-consent")){
+  cookieBanner.style.display = "none";
+}
+
+document.getElementById("accept-cookies").addEventListener("click", () => {
+  localStorage.setItem("cookie-consent", "accepted");
+  cookieBanner.style.display = "none";
+});
+
+document.getElementById("decline-cookies").addEventListener("click", () => {
+  localStorage.setItem("cookie-consent", "declined");
+  cookieBanner.style.display = "none";
+});
+</script>
+</body>
+</html>
+
