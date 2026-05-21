@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Conditions générales de vente</title>
+<meta name="description" content="Conditions générales de vente du site Kill Event.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --text:#0f172a;
+  --muted:#475569;
+  --accent:#2563eb;
+  --accent2:#7c3aed;
+  --btn:#2563eb;
+  --btn-dark:#111827;
+  --btn-text:#ffffff;
+  --bg:#f8fafc;
+  --bg2:#e0f2fe;
+  --card:rgba(255,255,255,.72);
+  --stroke:rgba(15,23,42,.14);
+  --shadow:0 18px 48px rgba(15,23,42,.14);
+  --radius:18px;
+  --radius2:28px;
+  --max:1120px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  color:var(--text);
+  font-family:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.7;
+  background:
+    radial-gradient(900px 500px at 8% -10%, rgba(37,99,235,.22), transparent 60%),
+    radial-gradient(800px 480px at 100% 0%, rgba(124,58,237,.18), transparent 60%),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+}
+
+a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:700;
+}
+
+.container{
+  width:min(var(--max), calc(100% - 40px));
+  margin-inline:auto;
+}
+
+.page-hero{
+  padding:76px 0 28px;
+}
+
+.banner{
+  position:relative;
+  overflow:hidden;
+  border-radius:36px;
+  padding:54px;
+  background:linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.68));
+  border:1px solid rgba(255,255,255,.75);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);
+}
+
+.banner::before{
+  content:"";
+  position:absolute;
+  width:460px;
+  height:460px;
+  right:-170px;
+  top:-220px;
+  border-radius:999px;
+  background:rgba(37,99,235,.13);
+}
+
+.banner::after{
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  left:-140px;
+  bottom:-180px;
+  border-radius:999px;
+  background:rgba(124,58,237,.13);
+}
+
+.banner-inner{
+  position:relative;
+  z-index:2;
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.7);
+  border:1px solid var(--stroke);
+  color:var(--accent);
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.eyebrow::before{
+  content:"";
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  box-shadow:0 0 0 5px rgba(37,99,235,.12);
+}
+
+.headline{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(36px,5vw,62px);
+  line-height:1.05;
+  margin-bottom:18px;
+}
+
+.lead{
+  max-width:780px;
+  font-size:18px;
+  color:var(--muted);
+}
+
+.pill{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 16px;
+  border-radius:999px;
+  background:rgba(255,255,255,.72);
+  border:1px solid var(--stroke);
+  color:var(--text);
+  font-weight:800;
+  transition:.2s ease;
+}
+
+.tag:hover{
+  transform:translateY(-2px);
+  background:#fff;
+}
+
+.dot{
+  width:9px;
+  height:9px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+}
+
+main{
+  padding:14px 0 86px;
+}
+
+.legal{
+  display:grid;
+  gap:20px;
+}
+
+.panel{
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--radius2);
+  padding:30px;
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.72);
+  box-shadow:0 14px 36px rgba(15,23,42,.10);
+  backdrop-filter:blur(16px);
+}
+
+.panel::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, rgba(255,255,255,.35), transparent 55%);
+  pointer-events:none;
+}
+
+.panel > *{
+  position:relative;
+  z-index:1;
+}
+
+.panel h2{
+  font-family:"Playfair Display",serif;
+  font-size:28px;
+  line-height:1.2;
+  margin-bottom:14px;
+}
+
+.panel p{
+  color:var(--muted);
+  margin-bottom:12px;
+}
+
+.panel p:last-child{
+  margin-bottom:0;
+}
+
+.kv{
+  display:grid;
+  gap:12px;
+  margin-top:18px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:16px;
+  padding:16px 18px;
+  border-radius:var(--radius);
+  background:rgba(255,255,255,.56);
+  border:1px solid rgba(15,23,42,.09);
+}
+
+.k{
+  font-weight:900;
+  color:var(--text);
+}
+
+.v{
+  color:var(--muted);
+  word-break:break-word;
+}
+
+.subnote{
+  margin-top:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:rgba(37,99,235,.08);
+  border:1px solid rgba(37,99,235,.15);
+  color:var(--muted);
+  font-size:14px;
+}
+
+ul{
+  padding-left:20px;
+  color:var(--muted);
+}
+
+li{
+  margin-bottom:8px;
+}
+
+@media(max-width:860px){
+  .page-hero{
+    padding:48px 0 22px;
+  }
+
+  .banner{
+    padding:38px 26px;
+    border-radius:28px;
+  }
+
+  .panel{
+    padding:24px;
+  }
+
+  .row{
+    grid-template-columns:1fr;
+    gap:6px;
+  }
+}
+
+@media(max-width:520px){
+  .container{
+    width:min(var(--max), calc(100% - 26px));
+  }
+
+  .headline{
+    font-size:34px;
+  }
+
+  .lead{
+    font-size:16px;
+  }
+
+  .tag{
+    width:100%;
+    justify-content:center;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="banner">
+      <div class="banner-inner">
+
+        <div class="eyebrow">Conditions générales</div>
+
+        <h1 class="headline">Conditions générales de vente</h1>
+
+        <p class="lead">
+          Les présentes conditions générales encadrent les ventes de kits de
+          Murder Party proposés par <strong>Kill Event</strong>.
+        </p>
+
+        <div class="pill">
+          <a class="tag" href="#produits"><span class="dot"></span>Produits</a>
+          <a class="tag" href="#commande"><span class="dot"></span>Commande</a>
+          <a class="tag" href="#paiement"><span class="dot"></span>Paiement</a>
+          <a class="tag" href="#contact"><span class="dot"></span>Contact</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<main>
+  <div class="container">
+    <div class="legal">
+
+      <section class="panel" id="objet">
+        <h2>1. Objet</h2>
+        <p>
+          Les présentes Conditions Générales de Vente ont pour objet de définir les conditions
+          dans lesquelles <strong>Kill Event</strong> commercialise ses kits de Murder Party
+          auprès de ses clients.
+        </p>
+      </section>
+
+      <section class="panel" id="vendeur">
+        <h2>2. Vendeur</h2>
+
+        <div class="kv">
+          <div class="row">
+            <div class="k">Nom commercial</div>
+            <div class="v"><strong>Kill Event</strong></div>
+          </div>
+
+          <div class="row">
+            <div class="k">Statut</div>
+            <div class="v">Auto-entrepreneur</div>
+          </div>
+
+          <div class="row">
+            <div class="k">Responsable</div>
+            <div class="v">À compléter</div>
+          </div>
+
+          <div class="row">
+            <div class="k">SIRET</div>
+            <div class="v">À compléter</div>
+          </div>
+
+          <div class="row">
+            <div class="k">Adresse</div>
+            <div class="v">À compléter</div>
+          </div>
+
+          <div class="row">
+            <div class="k">E-mail</div>
+            <div class="v">
+              <a href="mailto:kill-event@hotmail.com">kill-event@hotmail.com</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="produits">
+        <h2>3. Produits proposés</h2>
+        <p>
+          Kill Event propose à la vente des kits de Murder Party destinés à l’organisation
+          d’enquêtes immersives, soirées à thème, événements privés ou professionnels.
+        </p>
+        <p>
+          Chaque kit peut inclure, selon l’offre choisie : scénario, fiches personnages,
+          indices, documents de jeu, règles, guide d’organisation et supports numériques
+          ou imprimables.
+        </p>
+      </section>
+
+      <section class="panel" id="prix">
+        <h2>4. Prix</h2>
+        <p>
+          Les prix sont indiqués en euros. Les tarifs applicables sont ceux affichés sur le site
+          ou communiqués au moment de la commande.
+        </p>
+        <p>
+          Kill Event se réserve le droit de modifier ses tarifs à tout moment. Une commande déjà
+          validée reste facturée au prix indiqué lors de sa confirmation.
+        </p>
+      </section>
+
+      <section class="panel" id="commande">
+        <h2>5. Commande</h2>
+        <p>
+          Toute commande implique l’acceptation pleine et entière des présentes Conditions Générales
+          de Vente.
+        </p>
+        <p>
+          La commande devient définitive après validation par le client et confirmation du paiement,
+          sauf accord contraire préalable.
+        </p>
+      </section>
+
+      <section class="panel" id="paiement">
+        <h2>6. Paiement</h2>
+        <p>
+          Le paiement s’effectue selon les moyens proposés au moment de la commande.
+        </p>
+
+        <div class="kv">
+          <div class="row">
+            <div class="k">Moyens acceptés</div>
+            <div class="v">Carte bancaire, virement, plateforme de paiement ou tout autre moyen indiqué.</div>
+          </div>
+
+          <div class="row">
+            <div class="k">Validation</div>
+            <div class="v">La commande est confirmée après réception effective du paiement.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="livraison">
+        <h2>7. Livraison et accès aux contenus</h2>
+        <p>
+          Les kits peuvent être fournis sous format numérique, téléchargeable, envoyé par e-mail
+          ou, si prévu dans l’offre, sous format physique.
+        </p>
+        <p>
+          Pour les contenus numériques, l’accès ou l’envoi intervient généralement après confirmation
+          du paiement.
+        </p>
+      </section>
+
+      <section class="panel" id="numerique">
+        <h2>8. Produits numériques</h2>
+        <p>
+          Lorsque le produit est fourni sous format numérique, le client reconnaît que l’accès au contenu
+          peut entraîner l’exécution immédiate de la commande.
+        </p>
+        <p>
+          En validant l’achat d’un contenu numérique accessible immédiatement, le client accepte de renoncer
+          à son droit de rétractation lorsque la loi le permet.
+        </p>
+      </section>
+
+      <section class="panel" id="retractation">
+        <h2>9. Droit de rétractation</h2>
+        <p>
+          Conformément à la réglementation applicable, le client consommateur peut bénéficier d’un délai
+          légal de rétractation dans certains cas.
+        </p>
+        <p>
+          Toutefois, ce droit peut ne pas s’appliquer aux contenus numériques fournis immédiatement avec
+          l’accord préalable du client, ainsi qu’aux produits personnalisés ou réalisés sur mesure.
+        </p>
+      </section>
+
+      <section class="panel" id="utilisation">
+        <h2>10. Conditions d’utilisation des kits</h2>
+        <p>
+          Les kits Kill Event sont destinés à un usage privé ou professionnel selon les conditions indiquées
+          au moment de l’achat.
+        </p>
+        <p>
+          Toute reproduction, diffusion, revente, mise à disposition publique ou modification commerciale
+          des contenus est interdite sans autorisation écrite préalable.
+        </p>
+      </section>
+
+      <section class="panel" id="propriete">
+        <h2>11. Propriété intellectuelle</h2>
+        <p>
+          Les scénarios, textes, personnages, indices, documents, visuels et supports fournis dans les kits
+          restent protégés par le droit d’auteur.
+        </p>
+        <p>
+          L’achat d’un kit donne uniquement un droit d’utilisation personnel ou limité à l’événement prévu,
+          et ne transfère aucun droit de propriété intellectuelle au client.
+        </p>
+      </section>
+
+      <section class="panel" id="annulation">
+        <h2>12. Annulation et remboursement</h2>
+        <p>
+          Toute demande d’annulation ou de remboursement doit être adressée par e-mail à Kill Event.
+        </p>
+        <p>
+          Les remboursements éventuels sont étudiés au cas par cas, notamment selon la nature du produit,
+          son format, son éventuelle personnalisation et l’accès déjà donné au contenu.
+        </p>
+      </section>
+
+      <section class="panel" id="responsabilite">
+        <h2>13. Responsabilité</h2>
+        <p>
+          Kill Event s’engage à fournir des contenus conformes à la description indiquée au moment de l’achat.
+        </p>
+        <p>
+          La responsabilité de Kill Event ne saurait être engagée en cas de mauvaise utilisation du kit,
+          d’organisation inadaptée, de problème technique indépendant de sa volonté ou de modification
+          des contenus par le client.
+        </p>
+      </section>
+
+      <section class="panel" id="donnees">
+        <h2>14. Données personnelles</h2>
+        <p>
+          Les données personnelles transmises lors d’une commande ou d’une demande de contact sont utilisées
+          pour traiter les commandes, répondre aux demandes, assurer le suivi client et respecter les obligations
+          légales.
+        </p>
+        <p>
+          Pour plus d’informations, consultez la page
+          <a href="politique-confidentialite.html">Politique de confidentialité</a>.
+        </p>
+      </section>
+
+      <section class="panel" id="litiges">
+        <h2>15. Litiges</h2>
+        <p>
+          En cas de litige, le client est invité à contacter Kill Event afin de rechercher une solution amiable.
+        </p>
+        <p>
+          À défaut d’accord amiable, le litige pourra être porté devant les juridictions compétentes.
+        </p>
+      </section>
+
+      <section class="panel" id="contact">
+        <h2>16. Contact</h2>
+        <p>
+          Pour toute question concernant les présentes CGV ou une commande, vous pouvez contacter Kill Event :
+        </p>
+
+        <div class="kv">
+          <div class="row">
+            <div class="k">E-mail</div>
+            <div class="v">
+              <a href="mailto:kill-event@hotmail.com">kill-event@hotmail.com</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+</body>
+</html>
