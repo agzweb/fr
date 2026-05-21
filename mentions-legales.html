@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Mentions légales</title>
+<meta name="description" content="Mentions légales du site.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --text:#0f172a;
+  --muted:#475569;
+  --accent:#2563eb;
+  --accent2:#7c3aed;
+  --btn:#2563eb;
+  --btn-dark:#111827;
+  --btn-text:#ffffff;
+  --bg:#f8fafc;
+  --bg2:#e0f2fe;
+  --card:rgba(255,255,255,.72);
+  --stroke:rgba(15,23,42,.14);
+  --shadow:0 18px 48px rgba(15,23,42,.14);
+  --radius:18px;
+  --radius2:28px;
+  --max:1120px;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Inter",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(37,99,235,.18), transparent 30%),
+    radial-gradient(circle at top right, rgba(124,58,237,.16), transparent 28%),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+  min-height:100vh;
+  line-height:1.7;
+}
+
+a{
+  color:var(--accent);
+  text-decoration:none;
+}
+
+.container{
+  width:min(var(--max), calc(100% - 40px));
+  margin:auto;
+}
+
+/* HERO */
+
+.hero{
+  padding:80px 0 30px;
+}
+
+.hero-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:36px;
+  padding:60px;
+  background:
+    linear-gradient(135deg,
+      rgba(255,255,255,.92),
+      rgba(255,255,255,.72)
+    );
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(16px);
+}
+
+.hero-card::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:rgba(37,99,235,.10);
+  border-radius:50%;
+  top:-250px;
+  right:-150px;
+}
+
+.hero-card::after{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  background:rgba(124,58,237,.12);
+  border-radius:50%;
+  bottom:-180px;
+  left:-120px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(38px,5vw,62px);
+  line-height:1.1;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:18px;
+  color:var(--muted);
+  max-width:780px;
+}
+
+/* TAGS */
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:30px;
+}
+
+.tag{
+  padding:12px 18px;
+  border-radius:999px;
+  background:rgba(255,255,255,.7);
+  border:1px solid var(--stroke);
+  backdrop-filter:blur(10px);
+  font-weight:700;
+  color:var(--text);
+  transition:.2s ease;
+}
+
+.tag:hover{
+  transform:translateY(-2px);
+  background:white;
+}
+
+/* LEGAL */
+
+.legal{
+  padding:20px 0 80px;
+}
+
+.panel{
+  margin-bottom:22px;
+  border-radius:var(--radius2);
+  background:var(--card);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.65);
+  box-shadow:var(--shadow);
+  padding:30px;
+}
+
+.panel h2{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  margin-bottom:18px;
+}
+
+.panel p{
+  color:var(--muted);
+  margin-bottom:16px;
+}
+
+.kv{
+  display:grid;
+  gap:14px;
+  margin-top:20px;
+}
+
+.row{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  gap:16px;
+  padding:18px;
+  border-radius:20px;
+  background:rgba(255,255,255,.55);
+  border:1px solid rgba(15,23,42,.08);
+}
+
+.k{
+  font-weight:800;
+  color:var(--text);
+}
+
+.v{
+  color:var(--muted);
+  word-break:break-word;
+}
+
+/* LIST STYLE */
+
+.list{
+  padding-left:20px;
+  color:var(--muted);
+}
+
+.list li{
+  margin-bottom:10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:860px){
+
+  .hero-card{
+    padding:40px 28px;
+  }
+
+  .row{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="container">
+
+    <div class="hero-card">
+
+      <div class="hero-content">
+
+        <h1>Mentions légales</h1>
+
+        <p>
+          Retrouvez ici l’ensemble des informations légales concernant
+          l’éditeur, l’hébergement et l’utilisation du présent site internet.
+        </p>
+
+        <div class="tags">
+          <a href="#editeur" class="tag">Éditeur</a>
+          <a href="#hebergeur" class="tag">Hébergement</a>
+          <a href="#propriete" class="tag">Propriété intellectuelle</a>
+          <a href="#contact" class="tag">Contact</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<main class="legal">
+
+  <div class="container">
+
+    <!-- ÉDITEUR -->
+
+    <section class="panel" id="editeur">
+
+      <h2>1. Éditeur du site</h2>
+
+      <p>
+        Le présent site est édité par :
+      </p>
+
+      <div class="kv">
+
+        <div class="row">
+          <div class="k">Nom commercial</div>
+          <div class="v"><strong>Kill Event</strong></div>
+        </div>
+
+        <div class="row">
+          <div class="k">Responsable de publication</div>
+          <div class="v">À compléter</div>
+        </div>
+
+        <div class="row">
+          <div class="k">Statut</div>
+          <div class="v">Auto-entrepreneur</div>
+        </div>
+
+        <div class="row">
+          <div class="k">SIRET</div>
+          <div class="v">À compléter</div>
+        </div>
+
+        <div class="row">
+          <div class="k">Adresse e-mail</div>
+          <div class="v">
+            <a href="mailto:kill-event@hotmail.com">
+              kill-event@hotmail.com
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- HÉBERGEMENT -->
+
+    <section class="panel" id="hebergeur">
+
+      <h2>2. Hébergement</h2>
+
+      <p>
+        Le site est hébergé par :
+      </p>
+
+      <div class="kv">
+
+        <div class="row">
+          <div class="k">Hébergeur</div>
+          <div class="v">GitHub Pages</div>
+        </div>
+
+        <div class="row">
+          <div class="k">Entreprise</div>
+          <div class="v">GitHub, Inc.</div>
+        </div>
+
+        <div class="row">
+          <div class="k">Adresse</div>
+          <div class="v">
+            88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="k">Site web</div>
+          <div class="v">
+            <a href="https://pages.github.com/" target="_blank">
+              https://pages.github.com/
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PROPRIÉTÉ -->
+
+    <section class="panel" id="propriete">
+
+      <h2>3. Propriété intellectuelle</h2>
+
+      <p>
+        Tous les contenus présents sur ce site
+        (textes, images, graphismes, logo, vidéos, icônes, etc.)
+        sont protégés par le droit d’auteur et restent la propriété exclusive
+        de leur auteur sauf mention contraire.
+      </p>
+
+      <p>
+        Toute reproduction, représentation, modification, publication,
+        adaptation totale ou partielle du site, quel que soit le moyen
+        ou le procédé utilisé, est interdite sans autorisation écrite préalable.
+      </p>
+
+    </section>
+
+    <!-- RESPONSABILITÉ -->
+
+    <section class="panel">
+
+      <h2>4. Responsabilité</h2>
+
+      <p>
+        Les informations présentes sur ce site sont fournies à titre indicatif.
+        Malgré le soin apporté à leur rédaction et leur mise à jour,
+        l’éditeur du site ne saurait garantir l’exactitude,
+        la complétude ou l’actualité des informations diffusées.
+      </p>
+
+      <p>
+        L’utilisateur reconnaît utiliser ces informations sous sa responsabilité exclusive.
+      </p>
+
+    </section>
+
+    <!-- DONNÉES -->
+
+    <section class="panel">
+
+      <h2>5. Données personnelles</h2>
+
+      <p>
+        Les informations éventuellement collectées via les formulaires du site
+        sont uniquement destinées à répondre aux demandes des utilisateurs.
+      </p>
+
+      <p>
+        Conformément au RGPD et à la loi Informatique et Libertés,
+        vous disposez d’un droit d’accès, de rectification et de suppression
+        de vos données personnelles.
+      </p>
+
+    </section>
+
+    <!-- COOKIES -->
+
+    <section class="panel">
+
+      <h2>6. Cookies</h2>
+
+      <p>
+        Le site peut utiliser des cookies afin d’améliorer l’expérience utilisateur,
+        mesurer l’audience ou assurer certaines fonctionnalités techniques.
+      </p>
+
+      <p>
+        Vous pouvez configurer votre navigateur afin de refuser les cookies.
+      </p>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="panel" id="contact">
+
+      <h2>7. Contact</h2>
+
+      <p>
+        Pour toute question concernant le site ou son contenu :
+      </p>
+
+      <div class="kv">
+
+        <div class="row">
+          <div class="k">E-mail</div>
+          <div class="v">
+            <a href="mailto:kill-event@hotmail.com">
+              kill-event@hotmail.com
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+</body>
+</html>
