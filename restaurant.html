@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>La Piscine du Verdon — Restaurant Piscine & Grillades à Vinon-sur-Verdon</title>
+  <meta name="description" content="Restaurant piscine et grillades à Vinon-sur-Verdon. Terrasse ensoleillée, barbecue, cocktails, ambiance détente et repas au bord de l'eau." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --text:#17312c;
+      --muted:#5b6f68;
+      --accent:#00a7a5;
+      --accent2:#f59e0b;
+      --accent3:#ef4444;
+      --btn:#00a7a5;
+      --btn-dark:#17312c;
+      --btn-text:#ffffff;
+      --bg:#fff7ed;
+      --bg2:#dff7f3;
+      --card:rgba(255,255,255,.74);
+      --stroke:rgba(23,49,44,.14);
+      --shadow:0 18px 50px rgba(23,49,44,.16);
+      --radius:18px;
+      --radius2:28px;
+      --max:1120px;
+      --hero-img:url('https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80');
+    }
+
+    *{box-sizing:border-box;}
+    html,body{width:100%;overflow-x:hidden;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(950px 520px at 8% -8%, rgba(0,167,165,.24), transparent 62%),
+        radial-gradient(850px 520px at 108% 8%, rgba(245,158,11,.22), transparent 58%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none;}
+    img{max-width:100%;display:block;}
+    .container{width:min(var(--max), calc(100% - 48px));margin-inline:auto;}
+    .highlight{color:var(--accent);font-weight:950;}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(255,247,237,.86);
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:18px;}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:-.04em;font-size:23px;}
+    .brand-mark{width:54px;height:54px;border-radius:17px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;display:grid;place-items:center;box-shadow:0 14px 30px rgba(0,167,165,.28);font-family:"Space Grotesk",sans-serif;font-weight:900;}
+    .brand small{display:block;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:850;margin-top:-4px;}
+    .nav-right{display:flex;align-items:center;gap:18px;}
+    .navlinks{display:flex;align-items:center;gap:18px;}
+    .navlinks a{position:relative;font-weight:850;padding:10px 6px;color:#21443d;}
+    .navlinks a::after{content:"";position:absolute;left:6px;right:6px;bottom:6px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),var(--accent2),transparent);transform:scaleX(0);transition:transform .2s ease;}
+    .navlinks a:hover::after{transform:scaleX(1);}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:999px;background:linear-gradient(135deg,var(--btn),#12b8a6);color:var(--btn-text);font-weight:950;border:1px solid rgba(255,255,255,.45);box-shadow:0 15px 34px rgba(0,167,165,.25);transition:transform .15s ease, box-shadow .15s ease;cursor:pointer;max-width:100%;white-space:normal;text-align:center;line-height:1.2;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 20px 42px rgba(0,167,165,.31);}
+    .btn.secondary{background:linear-gradient(135deg,var(--btn-dark),#315c52);}
+    .btn.sun{background:linear-gradient(135deg,var(--accent2),#fb7185);}
+    .btn.light{background:rgba(255,255,255,.72);color:var(--text);border:1px solid var(--stroke);box-shadow:0 12px 26px rgba(23,49,44,.10);}
+    .wa-dot{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.25);}
+    .burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.55);align-items:center;justify-content:center;cursor:pointer;}
+    .burger span,.burger span::before,.burger span::after{width:18px;height:2px;background:var(--text);display:block;}
+    .burger span{position:relative;}.burger span::before,.burger span::after{content:"";position:absolute;left:0;}.burger span::before{top:-6px;}.burger span::after{top:6px;}
+    .mobile-panel{display:none;padding:10px 0 18px;} header[data-open="true"] .mobile-panel{display:block;} .mobile-panel .navlinks{flex-direction:column;align-items:flex-start;gap:10px;}
+
+    section{padding:84px 0;scroll-margin-top:110px;}
+    .section-title{font-family:"Space Grotesk",Inter,sans-serif;font-weight:900;letter-spacing:-.045em;font-size:clamp(30px,3.4vw,48px);line-height:1.06;margin:0 0 10px;}
+    .section-kicker{color:var(--muted);font-size:17px;margin:0 0 26px;max-width:75ch;}
+
+    .hero{padding-top:34px;}
+    .banner{position:relative;border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.76);box-shadow:var(--shadow);background:radial-gradient(900px 520px at 18% 18%, rgba(0,167,165,.18), transparent 62%),radial-gradient(820px 520px at 92% 16%, rgba(245,158,11,.18), transparent 60%),linear-gradient(135deg, rgba(255,255,255,.96), rgba(223,247,243,.84));}
+    .banner-inner{position:relative;display:grid;grid-template-columns:1.12fr .88fr;align-items:stretch;min-height:570px;z-index:1;}
+    .banner-left{padding:52px 42px;display:flex;flex-direction:column;justify-content:center;gap:16px;}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;width:max-content;padding:9px 12px;border-radius:999px;background:rgba(0,167,165,.11);border:1px solid rgba(0,167,165,.18);color:#007d7b;font-weight:950;}
+    .headline{font-family:"Space Grotesk",Inter,sans-serif;font-weight:900;font-size:clamp(38px,4.8vw,70px);letter-spacing:-.06em;line-height:.98;margin:0;}
+    .lead{margin:0;font-size:18px;color:#315c52;max-width:68ch;}
+    .pill{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px;}
+    .tag{display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.65);border:1px solid var(--stroke);box-shadow:0 10px 22px rgba(23,49,44,.06);font-weight:850;color:#21443d;}
+    .dot{width:9px;height:9px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 0 0 4px rgba(0,167,165,.12);}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;}
+    .banner-right{position:relative;display:flex;align-items:center;justify-content:center;padding:22px 22px 22px 0;}
+    .portrait{width:100%;height:100%;min-height:525px;border-radius:28px;overflow:hidden;border:1px solid rgba(23,49,44,.10);box-shadow:inset 0 0 0 1px rgba(255,255,255,.30), 0 18px 46px rgba(23,49,44,.16);position:relative;background-image:var(--hero-img);background-size:cover;background-position:center;background-repeat:no-repeat;}
+    .portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,49,44,.02),transparent 42%,rgba(23,49,44,.26));pointer-events:none;}
+    .floating{position:absolute;left:24px;bottom:24px;right:24px;padding:16px;border-radius:22px;background:rgba(255,255,255,.82);border:1px solid rgba(255,255,255,.72);box-shadow:0 18px 38px rgba(23,49,44,.18);font-weight:900;backdrop-filter:blur(10px);}
+    .floating span{display:block;color:var(--muted);font-size:14px;font-weight:750;margin-top:4px;}
+
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;}
+    .card{border-radius:var(--radius2);overflow:hidden;border:1px solid var(--stroke);background:var(--card);box-shadow:0 14px 30px rgba(23,49,44,.09);transition:transform .16s ease, box-shadow .16s ease;position:relative;}
+    .card:hover{transform:translateY(-4px);box-shadow:0 22px 42px rgba(23,49,44,.14);}
+    .card .img{aspect-ratio:4/3;width:100%;object-fit:cover;}
+    .card .body{padding:18px 18px 20px;}
+    .card h3{margin:0 0 7px;font-family:"Space Grotesk",Inter,sans-serif;font-size:24px;letter-spacing:-.03em;}
+    .card p{margin:0;color:var(--muted);font-size:15px;}
+    .price{display:inline-flex;margin:14px 0 0;padding:8px 11px;border-radius:999px;background:rgba(245,158,11,.14);border:1px solid rgba(245,158,11,.22);color:#9a5b00;font-weight:950;}
+    .linkrow{display:flex;align-items:center;justify-content:space-between;margin-top:14px;font-weight:900;color:var(--btn-dark);gap:12px;}
+    .arrow{width:34px;height:34px;border-radius:999px;display:grid;place-items:center;border:1px solid rgba(23,49,44,.18);background:rgba(255,255,255,.58);flex:0 0 auto;}
+
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;margin-top:22px;}
+    .panel{border-radius:var(--radius2);border:1px solid var(--stroke);background:var(--card);box-shadow:0 14px 30px rgba(23,49,44,.08);padding:22px;}
+    .panel h3,.panel h4{margin:0 0 10px;font-family:"Space Grotesk",Inter,sans-serif;letter-spacing:-.03em;}
+    .panel p{margin:0;color:var(--muted);}
+    .story-img{width:100%;height:235px;object-fit:cover;border-radius:20px;margin-bottom:16px;box-shadow:0 12px 28px rgba(23,49,44,.14);}
+    .checklist{display:grid;gap:10px;margin-top:14px;padding:0;list-style:none;}
+    .checklist li{display:flex;gap:10px;color:#315c52;font-weight:800;}.checklist li::before{content:"✓";color:var(--accent);font-weight:950;}
+
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px;}
+    .step{position:relative;overflow:hidden;border-radius:24px;border:1px solid var(--stroke);background:var(--card);box-shadow:0 12px 28px rgba(23,49,44,.08);padding:20px;min-height:170px;}
+    .step::before{content:"";position:absolute;width:125px;height:125px;right:-48px;top:-48px;border-radius:50%;background:rgba(245,158,11,.16);}
+    .step-num{display:inline-flex;min-width:50px;justify-content:center;padding:6px 10px;border-radius:999px;background:rgba(0,167,165,.10);color:var(--accent);font-weight:950;border:1px solid rgba(0,167,165,.16);margin-bottom:12px;}
+    .step h3{position:relative;margin:0;font-family:"Space Grotesk",Inter,sans-serif;font-size:20px;line-height:1.15;}
+    .step p{position:relative;margin:8px 0 0;color:var(--muted);font-size:14px;}
+
+    .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px;}
+    .review{border-radius:var(--radius2);border:1px solid var(--stroke);background:var(--card);box-shadow:0 12px 28px rgba(23,49,44,.08);padding:18px;}
+    .review .top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;}.review .name{font-weight:950;}.stars{letter-spacing:1px;color:#f59e0b;font-weight:950;font-size:14px;white-space:nowrap;}.review p{margin:0;color:var(--muted);font-size:15px;}
+
+    .faq{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px;}
+    details{border-radius:var(--radius2);border:1px solid var(--stroke);background:var(--card);box-shadow:0 12px 28px rgba(23,49,44,.06);padding:15px 16px;}
+    summary{cursor:pointer;font-weight:950;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;}summary::-webkit-details-marker{display:none;}
+    summary .chev{width:34px;height:34px;border-radius:999px;border:1px solid rgba(23,49,44,.18);display:grid;place-items:center;background:rgba(255,255,255,.46);transition:transform .18s ease;flex:0 0 auto;}details[open] summary .chev{transform:rotate(180deg);}details p{margin:10px 0 0;color:var(--muted);font-size:15px;}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px;align-items:start;}
+    form{display:grid;gap:12px;}label{font-weight:850;font-size:14px;}input,select,textarea{width:100%;padding:12px;border-radius:14px;border:1px solid rgba(23,49,44,.18);background:rgba(255,255,255,.72);color:var(--text);font:inherit;outline:none;transition:border-color .15s ease, box-shadow .15s ease;}input:focus,select:focus,textarea:focus{border-color:rgba(0,167,165,.55);box-shadow:0 0 0 4px rgba(0,167,165,.12);}textarea{min-height:120px;resize:vertical;}.note{font-size:13px;color:#6b7d76;margin-top:8px;}
+
+    .footer{padding:46px 0 36px;border-top:1px solid var(--stroke);background:linear-gradient(180deg,rgba(255,247,237,.62),rgba(223,247,243,.90));}
+    .footer-wrap{border:1px solid rgba(255,255,255,.70);background:rgba(255,255,255,.50);border-radius:28px;box-shadow:0 18px 44px rgba(23,49,44,.11);overflow:hidden;}
+    .footer-inner{padding:26px 22px;display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:18px;align-items:start;}.footer-title{font-family:"Space Grotesk",Inter,sans-serif;font-weight:900;font-size:24px;margin:0;letter-spacing:-.04em;}.footer-desc{margin:8px 0 0;color:var(--muted);max-width:52ch;}.footer-col h4{margin:2px 0 10px;font-size:14px;letter-spacing:.2px;text-transform:uppercase;color:#5b6f68;}.footer-links{display:flex;flex-direction:column;gap:10px;}.footer-links a{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(23,49,44,.12);background:rgba(255,255,255,.45);font-weight:850;}.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 22px 18px;border-top:1px solid rgba(23,49,44,.10);background:rgba(255,255,255,.30);}.footer-bottom .note{margin:0;}
+
+    .cookie-banner{position:fixed;bottom:20px;left:20px;right:20px;z-index:9999;display:flex;justify-content:center;}
+    .cookie-content{max-width:900px;width:100%;background:#17312c;color:white;padding:20px;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.35);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;border:1px solid rgba(255,255,255,.1);}
+    .cookie-content p{margin:0;font-size:15px;line-height:1.5;flex:1;}.cookie-actions{display:flex;gap:12px;}.cookie-btn{border:none;padding:12px 18px;border-radius:999px;font-weight:800;cursor:pointer;transition:.2s ease;}.cookie-btn:hover{transform:translateY(-2px);}.cookie-btn.accept{background:#00a7a5;color:white;}.cookie-btn.decline{background:#315c52;color:white;border:1px solid rgba(255,255,255,.15);}
+
+    @media (max-width:980px){.hero{padding-top:22px;}.banner{border-radius:28px;}.banner-inner{grid-template-columns:1fr;min-height:auto;}.banner-left{padding:36px 24px 22px;}.banner-right{padding:0 24px 24px;}.portrait{width:100%;height:auto;min-height:0;aspect-ratio:4/3;border-radius:24px;background-size:cover;background-position:center;}.cards,.reviews,.faq,.contact-grid,.split,.footer-inner{grid-template-columns:1fr;}.process{grid-template-columns:1fr 1fr;}.footer-bottom{flex-direction:column;align-items:flex-start;}}
+    @media (max-width:900px){.nav > .nav-right > nav.navlinks{display:none;}.burger{display:flex;flex:0 0 auto;}.mobile-panel nav.navlinks{display:flex;}}
+    @media (max-width:680px){.container{width:min(var(--max), calc(100% - 28px));}section{padding:58px 0;}.nav{flex-direction:column;align-items:stretch;gap:10px;}.brand{justify-content:center;}.nav-right{justify-content:space-between;gap:10px;}.nav-right > .btn{flex:1;min-width:0;padding:11px 12px;font-size:14px;}.banner{border-radius:24px;}.banner-left{padding:28px 18px 18px;gap:14px;}.eyebrow{width:100%;justify-content:center;text-align:center;font-size:13px;padding:9px 10px;}.headline{font-size:clamp(34px,10.8vw,44px);line-height:1.02;letter-spacing:-.05em;overflow-wrap:anywhere;}.lead{font-size:16px;line-height:1.55;max-width:100%;}.pill{gap:8px;}.tag{width:100%;border-radius:16px;padding:10px 11px;font-size:14px;line-height:1.25;}.hero-actions{display:grid;grid-template-columns:1fr;gap:10px;width:100%;}.hero-actions .btn{width:100%;min-height:46px;padding:13px 14px;}.banner-right{padding:0 18px 18px;}.portrait{width:100%;aspect-ratio:1/1;min-height:0;border-radius:22px;background-size:cover;background-position:center;}.process{grid-template-columns:1fr;}.footer-links a{overflow-wrap:anywhere;}.floating{left:14px;right:14px;bottom:14px;font-size:14px;}.cookie-banner{left:12px;right:12px;bottom:12px;}.cookie-content{flex-direction:column;align-items:stretch;padding:16px;border-radius:16px;gap:14px;}.cookie-content p{font-size:14px;}.cookie-actions{width:100%;display:grid;grid-template-columns:1fr;gap:10px;}.cookie-btn{width:100%;min-height:44px;}}
+    @media (max-width:420px){.container{width:min(var(--max), calc(100% - 22px));}.banner-left{padding:24px 14px 16px;}.banner-right{padding:0 14px 14px;}.headline{font-size:32px;}.btn{padding-inline:12px;}.nav-right > .btn{font-size:13px;}.portrait{aspect-ratio:1/1.08;border-radius:20px;}}
+  </style>
+</head>
+
+<body>
+  <header id="top" data-open="false">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Retour en haut">
+          <span class="brand-mark">PV</span>
+          <span>La Piscine du Verdon<small>Restaurant • Grillades • Terrasse</small></span>
+        </a>
+
+        <div class="nav-right">
+          <nav class="navlinks" aria-label="Navigation principale">
+            <a href="#carte">Carte</a>
+            <a href="#ambiance">Ambiance</a>
+            <a href="#evenements">Événements</a>
+            <a href="#avis">Avis</a>
+            <a href="#contact">Réserver</a>
+          </nav>
+
+          <a class="btn" href="#contact"><span class="wa-dot" aria-hidden="true"></span>Réserver une table</a>
+          <button class="burger" id="burger" aria-label="Menu mobile" aria-expanded="false"><span></span></button>
+        </div>
+      </div>
+
+      <div class="mobile-panel">
+        <nav class="navlinks" aria-label="Navigation mobile">
+          <a href="#carte">Carte</a><a href="#ambiance">Ambiance</a><a href="#evenements">Événements</a><a href="#avis">Avis</a><a href="#contact">Réserver</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="banner">
+        <div class="banner-inner">
+          <div class="banner-left">
+            <div class="eyebrow"><span class="dot"></span> À Vinon-sur-Verdon, l’été se savoure au bord de l’eau</div>
+            <h1 class="headline">Piscine, grillades & soleil. <span class="highlight">Le spot détente du Verdon.</span></h1>
+            <p class="lead">
+              Bienvenue à <span class="highlight">La Piscine du Verdon</span>, restaurant convivial à Vinon-sur-Verdon :
+              viandes grillées, salades fraîches, cocktails maison, terrasse ombragée et ambiance vacances pour déjeuner,
+              dîner ou profiter d’un moment entre amis.
+            </p>
+            <div class="pill" aria-label="Points forts">
+              <div class="tag"><span class="dot"></span>Grillades au feu & plats généreux</div>
+              <div class="tag"><span class="dot"></span>Terrasse piscine & coins ombragés</div>
+              <div class="tag"><span class="dot"></span>Cocktails, tapas & desserts glacés</div>
+              <div class="tag"><span class="dot"></span>Soirées privées et événements</div>
+            </div>
+            <div class="hero-actions">
+              <a class="btn secondary" href="#carte">Découvrir la carte</a>
+              <a class="btn light" href="#contact">Réserver maintenant</a>
+            </div>
+          </div>
+          <div class="banner-right">
+            <div class="portrait" aria-label="Restaurant piscine à Vinon-sur-Verdon">
+              <div class="floating">Ouvert en saison — déjeuner, apéro & dîner<span>Adresse à compléter • Vinon-sur-Verdon</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="carte">
+    <div class="container">
+      <h2 class="section-title">Une carte simple, fraîche et gourmande</h2>
+      <p class="section-kicker">Des assiettes qui sentent l’été : grillades saisies, produits frais, accompagnements maison et options légères pour profiter sans se presser.</p>
+
+      <div class="cards">
+        <article class="card">
+          <img class="img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80" alt="Grillades au barbecue" loading="lazy">
+          <div class="body">
+            <h3>Grillades maison</h3>
+            <p>Brochettes, pièces de bœuf, poulet mariné, ribs ou poisson grillé selon arrivage. Une cuisson généreuse, une assiette qui fait plaisir.</p>
+            <span class="price">À partir de 16€</span>
+            <div class="linkrow"><span>Le classique des beaux jours</span><span class="arrow">➜</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="img" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80" alt="Salade fraîche estivale" loading="lazy">
+          <div class="body">
+            <h3>Fraîcheur & salades</h3>
+            <p>Grandes salades, bowls colorés, légumes croquants, burrata, melon, tomates, herbes fraîches et assaisonnements ensoleillés.</p>
+            <span class="price">À partir de 13€</span>
+            <div class="linkrow"><span>Léger, frais, gourmand</span><span class="arrow">➜</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <img class="img" src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=80" alt="Cocktails en terrasse" loading="lazy">
+          <div class="body">
+            <h3>Cocktails & apéro</h3>
+            <p>Mojitos, spritz, mocktails, planches à partager, tapas chauds et petits plaisirs à déguster au bord de la piscine.</p>
+            <span class="price">Happy hour selon saison</span>
+            <div class="linkrow"><span>Parfait avant le coucher du soleil</span><span class="arrow">➜</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="ambiance">
+    <div class="container">
+      <h2 class="section-title">L’ambiance vacances, sans quitter Vinon</h2>
+      <p class="section-kicker">Ici, on vient pour manger, mais aussi pour souffler : un cadre lumineux, une terrasse conviviale, le bruit de l’eau et l’odeur des grillades.</p>
+
+      <div class="split">
+        <div class="panel">
+          <img class="story-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80" alt="Ambiance piscine et soleil" loading="lazy">
+          <h3>Déjeuner au bord de l’eau</h3>
+          <p>Une pause fraîche après le marché, une journée piscine en famille ou un déjeuner rapide entre collègues : l’endroit est pensé pour se sentir bien dès l’arrivée.</p>
+          <ul class="checklist">
+            <li>Terrasse agréable et coins ombragés</li>
+            <li>Service souriant et assiettes généreuses</li>
+            <li>Ambiance détendue pour petits et grands</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <img class="story-img" src="https://images.unsplash.com/photo-1525268323446-0505b6fe7778?auto=format&fit=crop&w=900&q=80" alt="Soirée grillades et terrasse" loading="lazy">
+          <h3>Soirées grillades & apéro</h3>
+          <p>Quand la chaleur redescend, la terrasse devient le lieu parfait pour partager une planche, commander une viande grillée et prolonger la soirée.</p>
+          <ul class="checklist">
+            <li>Apéritifs, cocktails et tapas à partager</li>
+            <li>Menus groupes sur demande</li>
+            <li>Privatisation possible selon disponibilité</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="evenements">
+    <div class="container">
+      <h2 class="section-title">Un lieu facile pour vos moments importants</h2>
+      <p class="section-kicker">Anniversaire, repas d’équipe, soirée d’été, afterwork ou retrouvailles en famille : on prépare une formule adaptée à votre groupe.</p>
+
+      <div class="process">
+        <div class="step"><span class="step-num">01</span><h3>Réservation</h3><p>Vous indiquez la date, le nombre de personnes et l’ambiance souhaitée.</p></div>
+        <div class="step"><span class="step-num">02</span><h3>Formule</h3><p>On propose un menu grillades, tapas, boissons ou une formule sur mesure.</p></div>
+        <div class="step"><span class="step-num">03</span><h3>Installation</h3><p>Table, terrasse, décoration légère et espace adapté selon la taille du groupe.</p></div>
+        <div class="step"><span class="step-num">04</span><h3>Profitez</h3><p>Vous arrivez, on s’occupe du service et vous profitez du moment.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="avis">
+    <div class="container">
+      <h2 class="section-title">Ce que les clients viennent chercher</h2>
+      <p class="section-kicker">Un bon restaurant de saison, c’est autant une assiette qu’une sensation.</p>
+      <div class="reviews">
+        <div class="review"><div class="top"><div class="name">“On se sent en vacances.”</div><div class="stars">★★★★★</div></div><p>Une terrasse agréable, de l’eau, du soleil, et une ambiance simple qui donne envie de rester.</p></div>
+        <div class="review"><div class="top"><div class="name">“Les grillades sont généreuses.”</div><div class="stars">★★★★★</div></div><p>Des plats lisibles, gourmands et parfaits après une journée dans le Verdon.</p></div>
+        <div class="review"><div class="top"><div class="name">“Parfait pour se retrouver.”</div><div class="stars">★★★★★</div></div><p>Famille, amis, groupes ou afterwork : le lieu est convivial sans être compliqué.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">FAQ</h2>
+      <p class="section-kicker">Les réponses utiles avant de réserver.</p>
+      <div class="faq">
+        <details><summary>Faut-il réserver ? <span class="chev">⌄</span></summary><p>La réservation est conseillée, surtout le week-end, en soirée et pour les groupes.</p></details>
+        <details><summary>Le restaurant est-il ouvert toute l’année ? <span class="chev">⌄</span></summary><p>Les horaires peuvent varier selon la saison et la météo. Ajoutez ici vos horaires exacts.</p></details>
+        <details><summary>Peut-on venir seulement boire un verre ? <span class="chev">⌄</span></summary><p>Oui, l’espace apéro permet de profiter d’un cocktail, d’un mocktail ou d’une planche à partager.</p></details>
+        <details><summary>Proposez-vous des options enfants ? <span class="chev">⌄</span></summary><p>Oui, une formule enfant peut être ajoutée avec plat simple, boisson et dessert.</p></details>
+        <details><summary>Peut-on organiser un événement privé ? <span class="chev">⌄</span></summary><p>Oui, selon disponibilité. Envoyez le nombre de personnes, la date et le type d’événement souhaité.</p></details>
+        <details><summary>Où êtes-vous situés ? <span class="chev">⌄</span></summary><p>À Vinon-sur-Verdon. Remplacez cette phrase par votre adresse complète et un lien Google Maps.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Réservez votre table au bord de la piscine</h2>
+      <p class="section-kicker">Indiquez votre date, l’heure, le nombre de personnes et une éventuelle demande spéciale. Le restaurant vous confirme rapidement.</p>
+      <div class="contact-grid">
+        <div class="panel">
+          <h4>Réservation rapide</h4>
+          <p>Le plus simple : appelez ou envoyez un message avec votre créneau souhaité.</p>
+          <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a class="btn" href="tel:+33000000000"><span class="wa-dot"></span>Appeler</a>
+            <a class="btn secondary" href="mailto:contact@lapiscineduverdon.fr?subject=Réservation%20restaurant%20-%20La%20Piscine%20du%20Verdon&body=Bonjour%2C%0A%0AJe%20souhaite%20réserver%20une%20table.%0A%0ADate%20%3A%20%0AHeure%20%3A%20%0ANombre%20de%20personnes%20%3A%20%0ADemande%20particulière%20%3A%20%0A%0AMerci%20!">Écrire un email</a>
+          </div>
+          <p class="note">Téléphone : 00 00 00 00 00<br>Email : contact@lapiscineduverdon.fr<br>Adresse : à compléter, Vinon-sur-Verdon</p>
+        </div>
+        <div class="panel">
+          <h4>Formulaire de réservation</h4>
+          <form action="https://formspree.io/f/xxxxxxx" method="POST">
+            <div><label for="name">Nom</label><input id="name" name="nom" type="text" placeholder="Votre nom" required></div>
+            <div><label for="email">Email</label><input id="email" name="email" type="email" placeholder="votre@email.com" required></div>
+            <div><label for="phone">Téléphone</label><input id="phone" name="telephone" type="tel" placeholder="06 00 00 00 00"></div>
+            <div><label for="date">Date souhaitée</label><input id="date" name="date" type="date" required></div>
+            <div><label for="moment">Moment</label><select id="moment" name="moment"><option>Déjeuner</option><option>Apéro</option><option>Dîner</option><option>Événement privé</option></select></div>
+            <div><label for="message">Message</label><textarea id="message" name="message" placeholder="Nombre de personnes, heure souhaitée, allergies, événement, demande spéciale…" required></textarea></div>
+            <button class="btn sun" type="submit">Envoyer ma demande</button>
+          </form>
+          <p class="note">Remplacez l’URL Formspree par votre lien de formulaire.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-wrap">
+        <div class="footer-inner">
+          <div>
+            <p class="footer-title">La Piscine du Verdon</p>
+            <p class="footer-desc">Restaurant piscine et grillades à Vinon-sur-Verdon. Une adresse conviviale pour déjeuner, boire un verre, dîner et profiter des beaux jours.</p>
+          </div>
+          <div class="footer-col"><h4>Navigation</h4><div class="footer-links"><a href="#carte">La carte <small>↓</small></a><a href="#ambiance">Ambiance <small>↓</small></a><a href="#contact">Réserver <small>↓</small></a></div></div>
+          <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:contact@lapiscineduverdon.fr">contact@lapiscineduverdon.fr<small>↗</small></a><a href="tel:+33000000000">00 00 00 00 00<small>↗</small></a></div></div>
+        </div>
+        <div class="footer-bottom"><p class="note">© <span id="year"></span> <strong>La Piscine du Verdon</strong> — Tous droits réservés</p><a class="btn light" href="#top">↑ Retour en haut</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+      <p>Ce site utilise des cookies pour améliorer votre expérience utilisateur, mesurer l’audience et optimiser les performances du site.</p>
+      <div class="cookie-actions">
+        <button id="accept-cookies" class="cookie-btn accept">Oui, j'accepte</button>
+        <button id="decline-cookies" class="cookie-btn decline">Non merci</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const header = document.querySelector("header");
+    const burger = document.getElementById("burger");
+    function setOpen(isOpen){header.dataset.open = isOpen ? "true" : "false";burger.setAttribute("aria-expanded", isOpen ? "true" : "false");}
+    burger.addEventListener("click", () => setOpen(header.dataset.open !== "true"));
+    document.querySelectorAll('.mobile-panel a[href^="#"]').forEach(a => a.addEventListener("click", () => setOpen(false)));
+    window.addEventListener("resize", () => { if (window.innerWidth > 860) setOpen(false); });
+
+    const cookieBanner = document.getElementById("cookie-banner");
+    if(localStorage.getItem("cookie-consent")){cookieBanner.style.display = "none";}
+    document.getElementById("accept-cookies").addEventListener("click", () => {localStorage.setItem("cookie-consent", "accepted");cookieBanner.style.display = "none";});
+    document.getElementById("decline-cookies").addEventListener("click", () => {localStorage.setItem("cookie-consent", "declined");cookieBanner.style.display = "none";});
+  </script>
+</body>
+</html>
