@@ -158,7 +158,112 @@
     .footer{padding:46px 0 36px;border-top:1px solid var(--stroke);background:linear-gradient(180deg,rgba(255,247,237,.62),rgba(223,247,243,.90));}
     .footer-wrap{border:1px solid rgba(255,255,255,.70);background:rgba(255,255,255,.50);border-radius:28px;box-shadow:0 18px 44px rgba(23,49,44,.11);overflow:hidden;}
     .footer-inner{padding:26px 22px;display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:18px;align-items:start;}.footer-title{font-family:"Space Grotesk",Inter,sans-serif;font-weight:900;font-size:24px;margin:0;letter-spacing:-.04em;}.footer-desc{margin:8px 0 0;color:var(--muted);max-width:52ch;}.footer-col h4{margin:2px 0 10px;font-size:14px;letter-spacing:.2px;text-transform:uppercase;color:#5b6f68;}.footer-links{display:flex;flex-direction:column;gap:10px;}.footer-links a{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(23,49,44,.12);background:rgba(255,255,255,.45);font-weight:850;}.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 22px 18px;border-top:1px solid rgba(23,49,44,.10);background:rgba(255,255,255,.30);}.footer-bottom .note{margin:0;}
+/* =========================
+   SOCIAL PREMIUM
+   ========================= */
 
+.social-premium{
+  display:grid;
+  gap:12px;
+  margin-top:14px;
+}
+
+.social-premium a{
+  position:relative;
+  overflow:hidden;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+
+  padding:14px 16px;
+  border-radius:18px;
+
+  color:#fff;
+  font-weight:900;
+  letter-spacing:.2px;
+
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.04)),
+    linear-gradient(135deg, #ff8a00, #ff3d6e 45%, #7b2cff);
+
+  border:1px solid rgba(255,255,255,.22);
+
+  box-shadow:
+    0 18px 38px rgba(0,0,0,.22);
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    filter .18s ease;
+}
+
+/* FACEBOOK */
+.social-premium a:nth-child(2){
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.04)),
+    linear-gradient(135deg, #1877f2, #0b3d91);
+}
+
+/* TIKTOK */
+.social-premium a:nth-child(3){
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,.04)),
+    linear-gradient(135deg, #111, #ff0050 55%, #00f2ea);
+}
+
+.social-premium a::before{
+  content:"";
+
+  position:absolute;
+  inset:-80%;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 35%,
+      rgba(255,255,255,.45),
+      transparent 65%
+    );
+
+  transform:translateX(-45%) rotate(12deg);
+
+  transition:transform .55s ease;
+}
+
+.social-premium a:hover{
+  transform:translateY(-4px) scale(1.02);
+
+  box-shadow:
+    0 24px 48px rgba(0,0,0,.32);
+
+  filter:saturate(1.08);
+}
+
+.social-premium a:hover::before{
+  transform:translateX(45%) rotate(12deg);
+}
+
+.social-premium span,
+.social-premium strong{
+  position:relative;
+  z-index:1;
+}
+
+.social-premium strong{
+  width:34px;
+  height:34px;
+
+  border-radius:999px;
+
+  display:grid;
+  place-items:center;
+
+  background:rgba(255,255,255,.18);
+
+  border:1px solid rgba(255,255,255,.22);
+}
     .cookie-banner{position:fixed;bottom:20px;left:20px;right:20px;z-index:9999;display:flex;justify-content:center;}
     .cookie-content{max-width:900px;width:100%;background:#17312c;color:white;padding:20px;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.35);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;border:1px solid rgba(255,255,255,.1);}
     .cookie-content p{margin:0;font-size:15px;line-height:1.5;flex:1;}.cookie-actions{display:flex;gap:12px;}.cookie-btn{border:none;padding:12px 18px;border-radius:999px;font-weight:800;cursor:pointer;transition:.2s ease;}.cookie-btn:hover{transform:translateY(-2px);}.cookie-btn.accept{background:#00a7a5;color:white;}.cookie-btn.decline{background:#315c52;color:white;border:1px solid rgba(255,255,255,.15);}
@@ -379,21 +484,127 @@
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-wrap">
-        <div class="footer-inner">
-          <div>
-            <p class="footer-title">La Piscine du Verdon</p>
-            <p class="footer-desc">Restaurant piscine et grillades à Vinon-sur-Verdon. Une adresse conviviale pour déjeuner, boire un verre, dîner et profiter des beaux jours.</p>
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-wrap">
+
+      <div class="footer-inner">
+
+        <!-- COLONNE MARQUE -->
+        <div class="footer-brand">
+
+          <p class="footer-title">
+            La Piscine du Verdon
+          </p>
+
+          <p class="footer-desc">
+            Restaurant piscine & grillades à Vinon-sur-Verdon.
+            Une adresse conviviale pour déjeuner au soleil,
+            partager un verre entre amis et profiter d’une ambiance estivale unique.
+          </p>
+
+          <div class="footer-badges">
+
+            <a class="footer-badge" href="tel:+33000000000">
+              <span class="mini-dot"></span>
+              00 00 00 00 00
+            </a>
+
+            <a class="footer-badge" href="mailto:contact@lapiscineduverdon.fr">
+              <span class="mini-dot"></span>
+              contact@lapiscineduverdon.fr
+            </a>
+
           </div>
-          <div class="footer-col"><h4>Navigation</h4><div class="footer-links"><a href="#carte">La carte <small>↓</small></a><a href="#ambiance">Ambiance <small>↓</small></a><a href="#contact">Réserver <small>↓</small></a></div></div>
-          <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:contact@lapiscineduverdon.fr">contact@lapiscineduverdon.fr<small>↗</small></a><a href="tel:+33000000000">00 00 00 00 00<small>↗</small></a></div></div>
+
         </div>
-        <div class="footer-bottom"><p class="note">© <span id="year"></span> <strong>La Piscine du Verdon</strong> — Tous droits réservés</p><a class="btn light" href="#top">↑ Retour en haut</a></div>
+
+        <!-- NAVIGATION -->
+        <div class="footer-col">
+
+          <h4>Navigation</h4>
+
+          <div class="footer-links">
+
+            <a href="#carte">
+              La carte
+              <small>↓</small>
+            </a>
+
+            <a href="#ambiance">
+              Ambiance
+              <small>↓</small>
+            </a>
+
+            <a href="#contact">
+              Réserver
+              <small>↓</small>
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- RÉSEAUX -->
+        <div class="footer-col">
+
+          <h4>Suivez-nous</h4>
+
+          <div class="social-premium">
+
+            <a href="https://www.instagram.com/"
+               target="_blank"
+               rel="noopener">
+
+              <span>Instagram</span>
+              <strong>↗</strong>
+
+            </a>
+
+            <a href="https://www.facebook.com/"
+               target="_blank"
+               rel="noopener">
+
+              <span>Facebook</span>
+              <strong>↗</strong>
+
+            </a>
+
+            <a href="https://www.tiktok.com/"
+               target="_blank"
+               rel="noopener">
+
+              <span>TikTok</span>
+              <strong>↗</strong>
+
+            </a>
+
+          </div>
+
+        </div>
+
       </div>
+
+      <!-- BAS FOOTER -->
+      <div class="footer-bottom">
+
+        <p class="note">
+          © <span id="year"></span>
+          <strong>La Piscine du Verdon</strong>
+          — Tous droits réservés
+        </p>
+
+        <a class="btn light" href="#top">
+          ↑ Retour en haut
+        </a>
+
+      </div>
+
     </div>
-  </footer>
+
+  </div>
+</footer>
 
   <div id="cookie-banner" class="cookie-banner">
     <div class="cookie-content">
