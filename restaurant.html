@@ -58,7 +58,50 @@
     }
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:18px;}
     .brand{display:flex;align-items:center;gap:12px;font-weight:950;letter-spacing:-.04em;font-size:23px;}
-    .brand-mark{width:54px;height:54px;border-radius:17px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:white;display:grid;place-items:center;box-shadow:0 14px 30px rgba(0,167,165,.28);font-family:"Space Grotesk",sans-serif;font-weight:900;}
+    .brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.brand-logo{
+  height:58px;
+  width:auto;
+
+  display:block;
+  object-fit:contain;
+
+  filter:
+    drop-shadow(
+      0 10px 20px rgba(23,49,44,.12)
+    );
+
+  transition:
+    transform .18s ease,
+    filter .18s ease;
+}
+
+.brand:hover .brand-logo{
+  transform:translateY(-2px);
+
+  filter:
+    drop-shadow(
+      0 16px 28px rgba(23,49,44,.18)
+    );
+}
+
+.brand span{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+
+.brand small{
+  margin-top:4px;
+  opacity:.7;
+  font-size:12px;
+  font-weight:600;
+}
     .brand small{display:block;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:850;margin-top:-4px;}
     .nav-right{display:flex;align-items:center;gap:18px;}
     .navlinks{display:flex;align-items:center;gap:18px;}
@@ -304,10 +347,22 @@
   <header id="top" data-open="false">
     <div class="container">
       <div class="nav">
-        <a class="brand" href="#top" aria-label="Retour en haut">
-          <span class="brand-mark">PV</span>
-          <span>La Piscine du Verdon<small>Restaurant • Grillades • Terrasse</small></span>
-        </a>
+      <a class="brand" href="#top" aria-label="Retour en haut">
+
+  <img
+    src="https://www.agz-web.com/logoexemple1.png"
+    alt="La Piscine du Verdon"
+    class="brand-logo"
+  >
+
+  <span>
+    La Piscine du Verdon
+    <small>
+      Restaurant • Grillades • Terrasse
+    </small>
+  </span>
+
+</a>
 
         <div class="nav-right">
           <nav class="navlinks" aria-label="Navigation principale">
