@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AGZ WEB — Demande de devis site vitrine</title>
+  <meta name="description" content="Formulaire de brief pour créer un devis de site vitrine avec AGZ WEB." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --text:#0f172a;
+      --muted:#475569;
+      --accent:#2563eb;
+      --accent2:#7c3aed;
+      --btn:#2563eb;
+      --btn-dark:#111827;
+      --btn-text:#ffffff;
+      --bg:#f8fafc;
+      --bg2:#e0f2fe;
+      --card:rgba(255,255,255,.74);
+      --stroke:rgba(15,23,42,.14);
+      --shadow:0 18px 48px rgba(15,23,42,.14);
+      --radius:18px;
+      --radius2:28px;
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box;}
+    html,body{width:100%;overflow-x:hidden;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(950px 520px at 8% -8%, rgba(37,99,235,.20), transparent 62%),
+        radial-gradient(850px 520px at 108% 8%, rgba(124,58,237,.16), transparent 58%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.55;
+    }
+
+    a{color:inherit;text-decoration:none;}
+    .container{width:min(var(--max), calc(100% - 48px));margin-inline:auto;}
+    .highlight{color:var(--accent);font-weight:900;}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:blur(12px);
+      background:rgba(248,250,252,.84);
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:18px;}
+    .logo-agz{height:70px;width:auto;object-fit:contain;transition:.2s ease;}
+    .logo-agz:hover{transform:scale(1.03);}
+    .nav-right{display:flex;align-items:center;gap:18px;}
+    .navlinks{display:flex;align-items:center;gap:18px;}
+    .navlinks a{position:relative;font-weight:850;padding:10px 6px;color:#1e293b;}
+    .navlinks a::after{content:"";position:absolute;left:6px;right:6px;bottom:6px;height:2px;background:linear-gradient(90deg,transparent,var(--accent),var(--accent2),transparent);transform:scaleX(0);transition:transform .2s ease;}
+    .navlinks a:hover::after{transform:scaleX(1);}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 18px;border-radius:999px;background:linear-gradient(135deg,var(--btn),var(--accent2));color:var(--btn-text);font-weight:950;border:1px solid rgba(255,255,255,.35);box-shadow:0 15px 34px rgba(37,99,235,.25);transition:transform .15s ease, box-shadow .15s ease;cursor:pointer;max-width:100%;white-space:normal;text-align:center;line-height:1.2;font:inherit;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 20px 42px rgba(37,99,235,.31);}
+    .btn.secondary{background:linear-gradient(135deg,var(--btn-dark),#334155);}
+    .btn.light{background:rgba(255,255,255,.72);color:var(--text);border:1px solid var(--stroke);box-shadow:0 12px 26px rgba(15,23,42,.10);}
+    .wa-dot{width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.20);}
+
+    .burger{display:none;width:44px;height:44px;border-radius:12px;border:1px solid var(--stroke);background:rgba(255,255,255,.55);align-items:center;justify-content:center;cursor:pointer;}
+    .burger span,.burger span::before,.burger span::after{width:18px;height:2px;background:var(--text);display:block;}
+    .burger span{position:relative;}.burger span::before,.burger span::after{content:"";position:absolute;left:0;}.burger span::before{top:-6px;}.burger span::after{top:6px;}
+    .mobile-panel{display:none;padding:10px 0 18px;} header[data-open="true"] .mobile-panel{display:block;} .mobile-panel .navlinks{flex-direction:column;align-items:flex-start;gap:10px;}
+
+    section{padding:76px 0;scroll-margin-top:110px;}
+    .hero{padding-top:34px;}
+    .banner{position:relative;border-radius:34px;overflow:hidden;border:1px solid rgba(255,255,255,.70);box-shadow:var(--shadow);background:radial-gradient(900px 520px at 18% 18%, rgba(37,99,235,.18), transparent 62%),radial-gradient(820px 520px at 92% 16%, rgba(124,58,237,.16), transparent 60%),linear-gradient(135deg, rgba(255,255,255,.96), rgba(224,242,254,.82));}
+    .banner-inner{position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;min-height:420px;z-index:1;}
+    .banner-left{padding:52px 42px;display:flex;flex-direction:column;justify-content:center;gap:16px;}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;width:max-content;padding:9px 12px;border-radius:999px;background:rgba(37,99,235,.10);border:1px solid rgba(37,99,235,.18);color:#1d4ed8;font-weight:900;}
+    .headline{font-family:"Space Grotesk",Inter,sans-serif;font-weight:900;font-size:clamp(38px,4.8vw,66px);letter-spacing:-.06em;line-height:.98;margin:0;}
+    .lead{margin:0;font-size:18px;color:#334155;max-width:68ch;}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;}
+    .hero-card{margin:32px;padding:28px;border-radius:28px;border:1px solid var(--stroke);background:rgba(255,255,255,.58);box-shadow:0 18px 42px rgba(15,23,42,.12);}
+    .hero-card h2{font-family:"Space Grotesk",Inter,sans-serif;font-size:30px;letter-spacing:-.04em;line-height:1.08;margin:0 0 12px;}
+    .hero-card p{margin:0 0 16px;color:var(--muted);}
+    .mini-list{display:grid;gap:10px;margin:0;padding:0;list-style:none;}
+    .mini-list li{display:flex;gap:10px;font-weight:800;color:#334155;}
+    .mini-list li::before{content:"✓";color:var(--accent);font-weight:950;}
+
+    .section-title{font-family:"Space Grotesk",Inter,sans-serif;font-weight:800;letter-spacing:-.04em;font-size:clamp(30px,3.4vw,46px);line-height:1.06;margin:0 0 10px;}
+    .section-kicker{color:var(--muted);font-size:17px;margin:0 0 26px;max-width:75ch;}
+
+    .form-shell{display:grid;grid-template-columns:.34fr .66fr;gap:18px;align-items:start;}
+    .sidebar{position:sticky;top:110px;border-radius:var(--radius2);border:1px solid var(--stroke);background:var(--card);box-shadow:0 14px 30px rgba(15,23,42,.08);padding:20px;}
+    .sidebar h3{font-family:"Space Grotesk",Inter,sans-serif;margin:0 0 12px;letter-spacing:-.03em;font-size:24px;}
+    .side-links{display:grid;gap:10px;margin-top:16px;}
+    .side-links a{padding:11px 12px;border-radius:15px;border:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.50);font-weight:850;color:#1e293b;}
+    .note{font-size:13px;color:#64748b;margin:12px 0 0;}
+
+    form{display:grid;gap:18px;}
+    .form-section{position:relative;overflow:hidden;border-radius:var(--radius2);border:1px solid var(--stroke);background:var(--card);box-shadow:0 14px 30px rgba(15,23,42,.08);padding:22px;}
+    .form-section::before{content:"";position:absolute;width:180px;height:180px;right:-90px;top:-90px;border-radius:50%;background:linear-gradient(135deg,rgba(37,99,235,.12),rgba(124,58,237,.12));}
+    .form-section > *{position:relative;}
+    .form-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:18px;}
+    .form-head h3{font-family:"Space Grotesk",Inter,sans-serif;font-size:26px;line-height:1.08;letter-spacing:-.04em;margin:0;}
+    .form-head p{margin:6px 0 0;color:var(--muted);}
+    .step-num{display:inline-flex;min-width:50px;justify-content:center;padding:6px 10px;border-radius:999px;background:rgba(37,99,235,.10);color:var(--accent);font-weight:950;border:1px solid rgba(37,99,235,.16);}
+
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+    .field{display:grid;gap:7px;}
+    label{font-weight:850;font-size:14px;}
+    input,select,textarea{width:100%;padding:12px;border-radius:14px;border:1px solid rgba(15,23,42,.18);background:rgba(255,255,255,.70);color:var(--text);font:inherit;outline:none;transition:border-color .15s ease, box-shadow .15s ease;}
+    input:focus,select:focus,textarea:focus{border-color:rgba(37,99,235,.55);box-shadow:0 0 0 4px rgba(37,99,235,.12);}
+    textarea{min-height:120px;resize:vertical;}
+    .checks{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+    .check{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:15px;border:1px solid rgba(15,23,42,.12);background:rgba(255,255,255,.48);font-weight:800;color:#334155;}
+    .check input{width:18px;height:18px;accent-color:var(--accent);padding:0;}
+    .radio-row{display:flex;flex-wrap:wrap;gap:10px;}
+    .radio-pill{display:inline-flex;align-items:center;gap:10px;padding:11px 13px;border-radius:999px;border:1px solid rgba(15,23,42,.12);background:rgba(255,255,255,.48);font-weight:850;color:#334155;}
+    .radio-pill input{width:16px;height:16px;accent-color:var(--accent);padding:0;}
+    .submit-box{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-radius:28px;border:1px solid rgba(255,255,255,.70);background:linear-gradient(135deg,rgba(255,255,255,.78),rgba(224,242,254,.76));box-shadow:var(--shadow);padding:22px;}
+    .submit-box p{margin:0;color:var(--muted);max-width:58ch;}
+
+    .footer{padding:46px 0 36px;border-top:1px solid var(--stroke);background:linear-gradient(180deg,rgba(248,250,252,.62),rgba(224,242,254,.90));}
+    .footer-wrap{border:1px solid rgba(255,255,255,.70);background:rgba(255,255,255,.48);border-radius:28px;box-shadow:0 18px 44px rgba(15,23,42,.11);overflow:hidden;}
+    .footer-inner{padding:26px 22px;display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:18px;align-items:start;}
+    .footer-title{font-family:"Space Grotesk",Inter,sans-serif;font-weight:900;font-size:24px;margin:0;letter-spacing:-.04em;}
+    .footer-desc{margin:8px 0 0;color:var(--muted);max-width:52ch;}
+    .footer-col h4{margin:2px 0 10px;font-size:14px;letter-spacing:.2px;text-transform:uppercase;color:#475569;}
+    .footer-links{display:flex;flex-direction:column;gap:10px;}
+    .footer-links a{display:inline-flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(15,23,42,.12);background:rgba(255,255,255,.45);font-weight:850;}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px 22px 18px;border-top:1px solid rgba(15,23,42,.10);background:rgba(255,255,255,.30);}
+    .footer-bottom .note{margin:0;}
+
+    @media (max-width:980px){
+      .banner-inner,.form-shell{grid-template-columns:1fr;}
+      .hero-card{margin:0 24px 24px;}
+      .sidebar{position:relative;top:auto;}
+      .grid-3{grid-template-columns:1fr 1fr;}
+      .footer-inner{grid-template-columns:1fr;}
+    }
+    @media (max-width:900px){
+      .nav > .nav-right > nav.navlinks{display:none;}
+      .burger{display:flex;flex:0 0 auto;}
+      .mobile-panel nav.navlinks{display:flex;}
+    }
+    @media (max-width:680px){
+      .container{width:min(var(--max), calc(100% - 28px));}
+      section{padding:58px 0;}
+      .nav{flex-direction:column;align-items:stretch;gap:10px;}
+      .brand{display:flex;justify-content:center;}
+      .logo-agz{height:55px;}
+      .nav-right{justify-content:space-between;gap:10px;}
+      .nav-right > .btn{flex:1;min-width:0;padding:11px 12px;font-size:14px;}
+      .banner{border-radius:24px;}
+      .banner-left{padding:28px 18px 18px;gap:14px;}
+      .eyebrow{width:100%;justify-content:center;text-align:center;font-size:13px;padding:9px 10px;}
+      .headline{font-size:clamp(34px,10.8vw,44px);line-height:1.02;letter-spacing:-.05em;overflow-wrap:anywhere;}
+      .lead{font-size:16px;line-height:1.55;max-width:100%;}
+      .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;width:100%;}
+      .hero-actions .btn{width:100%;min-height:46px;padding:13px 14px;}
+      .hero-card{margin:0 18px 18px;padding:20px;border-radius:22px;}
+      .grid-2,.grid-3,.checks{grid-template-columns:1fr;}
+      .form-head{display:grid;}
+      .submit-box{display:grid;}
+      .submit-box .btn{width:100%;}
+      .footer-bottom{flex-direction:column;align-items:flex-start;}
+    }
+  </style>
+</head>
+
+<body>
+  <header id="top" data-open="false">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="https://www.agz-web.com/" aria-label="Retour à l'accueil AGZ WEB">
+          <img src="https://www.agz-web.com/logo.png" alt="Logo AGZ WEB" class="logo-agz">
+        </a>
+
+        <div class="nav-right">
+          <nav class="navlinks" aria-label="Navigation principale">
+            <a href="#base">Contact</a>
+            <a href="#legal">Infos légales</a>
+            <a href="#objectif">Objectif</a>
+            <a href="#structure">Structure</a>
+            <a href="#identite">Identité</a>
+          </nav>
+
+          <a class="btn" href="#formulaire">
+            <span class="wa-dot" aria-hidden="true"></span>
+            Remplir le brief
+          </a>
+
+          <button class="burger" id="burger" aria-label="Menu mobile" aria-expanded="false"><span></span></button>
+        </div>
+      </div>
+
+      <div class="mobile-panel">
+        <nav class="navlinks" aria-label="Navigation mobile">
+          <a href="#base">Contact</a><a href="#legal">Infos légales</a><a href="#objectif">Objectif</a><a href="#structure">Structure</a><a href="#identite">Identité</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="banner">
+        <div class="banner-inner">
+          <div class="banner-left">
+            <div class="eyebrow"><span class="wa-dot" aria-hidden="true"></span> Brief site vitrine & demande de devis</div>
+            <h1 class="headline">Parlez-moi de votre projet. <span class="highlight">Je prépare votre devis.</span></h1>
+            <p class="lead">Ce formulaire permet de comprendre votre activité, vos objectifs, les pages souhaitées et les éléments indispensables à afficher sur votre futur site vitrine.</p>
+            <div class="hero-actions">
+              <a class="btn secondary" href="#formulaire">Commencer le formulaire</a>
+              <a class="btn light" href="mailto:agz.web13@gmail.com">Poser une question</a>
+            </div>
+          </div>
+          <aside class="hero-card">
+            <h2>Un brief clair = un devis juste</h2>
+            <p>Plus les informations sont précises, plus je peux proposer une structure adaptée, un prix cohérent et un site vraiment utile pour votre entreprise.</p>
+            <ul class="mini-list">
+              <li>Informations de contact</li>
+              <li>Infos légales du futur site</li>
+              <li>Objectif, services et positionnement</li>
+              <li>Pages, contenus et identité visuelle</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formulaire">
+    <div class="container">
+      <h2 class="section-title">Formulaire de demande de devis</h2>
+      <p class="section-kicker">Remplissez uniquement ce que vous savez déjà. Les champs marqués comme facultatifs peuvent être complétés plus tard.</p>
+
+      <div class="form-shell">
+        <aside class="sidebar">
+          <h3>Les étapes du brief</h3>
+          <p class="note">Vous pouvez aussi utiliser les liens ci-dessous pour aller directement à une section.</p>
+          <div class="side-links">
+            <a href="#base">01 — Informations de base</a>
+            <a href="#legal">02 — Informations légales</a>
+            <a href="#web">03 — Site & nom de domaine</a>
+            <a href="#objectif">04 — Objectif de l’entreprise</a>
+            <a href="#structure">05 — Structure du site</a>
+            <a href="#accueil">06 — Page d’accueil</a>
+            <a href="#identite">07 — Identité visuelle</a>
+          </div>
+        </aside>
+
+        <form action="https://formspree.io/f/xlgvbglk" method="POST">
+          <section class="form-section" id="base">
+            <div class="form-head"><div><h3>Informations de base</h3><p>Les coordonnées de la personne à contacter pour le projet.</p></div><span class="step-num">01</span></div>
+            <div class="grid-2">
+              <div class="field"><label for="contact_nom">Nom / prénom du contact</label><input id="contact_nom" name="contact_nom" type="text" required></div>
+              <div class="field"><label for="contact_tel">Téléphone du contact</label><input id="contact_tel" name="contact_telephone" type="tel" required></div>
+              <div class="field"><label for="contact_email">Email du contact</label><input id="contact_email" name="contact_email" type="email" required></div>
+              <div class="field"><label for="source">Comment nous avez-vous trouvé ? <span class="note">facultatif</span></label><select id="source" name="source"><option value="">Sélectionner</option><option>Google</option><option>Instagram</option><option>Recommandation</option><option>Salon / événement</option><option>Autre</option></select></div>
+            </div>
+          </section>
+
+          <section class="form-section" id="legal">
+            <div class="form-head"><div><h3>Informations légales à faire apparaître sur le site</h3><p>Ces éléments peuvent être nécessaires pour les mentions légales et la crédibilité du site.</p></div><span class="step-num">02</span></div>
+            <div class="grid-2">
+              <div class="field"><label for="entreprise_nom">Nom de l’entreprise</label><input id="entreprise_nom" name="entreprise_nom" type="text"></div>
+              <div class="field"><label for="entreprise_tel">Téléphone</label><input id="entreprise_tel" name="entreprise_telephone" type="tel"></div>
+              <div class="field"><label for="entreprise_email">Email</label><input id="entreprise_email" name="entreprise_email" type="email"></div>
+              <div class="field"><label for="adresse">Adresse complète</label><input id="adresse" name="adresse_complete" type="text"></div>
+              <div class="field"><label for="siret">SIRET</label><input id="siret" name="siret" type="text"></div>
+              <div class="field"><label for="tva">TVA intracommunautaire</label><input id="tva" name="tva_intracommunautaire" type="text"></div>
+              <div class="field"><label for="statut">Statut juridique</label><input id="statut" name="statut_juridique" type="text" placeholder="SASU, EI, SARL…"></div>
+              <div class="field"><label for="dirigeant">Nom du dirigeant</label><input id="dirigeant" name="nom_dirigeant" type="text"></div>
+              <div class="field"><label for="activite">Activité exacte</label><input id="activite" name="activite_exacte" type="text"></div>
+              <div class="field"><label for="zone">Zone géographique desservie</label><input id="zone" name="zone_geographique" type="text"></div>
+              <div class="field"><label for="horaires">Horaires d’ouverture</label><input id="horaires" name="horaires_ouverture" type="text"></div>
+              <div class="field"><label for="creation">Année de création</label><input id="creation" name="annee_creation" type="text"></div>
+              <div class="field"><label for="employes">Nombre d’employés</label><input id="employes" name="nombre_employes" type="text"></div>
+            </div>
+          </section>
+
+          <section class="form-section" id="web">
+            <div class="form-head"><div><h3>Site actuel & nom de domaine</h3><p>Pour savoir si le projet part de zéro ou d’une base existante.</p></div><span class="step-num">03</span></div>
+            <div class="grid-2">
+              <div class="field"><label>Site web déjà créé ?</label><div class="radio-row"><label class="radio-pill"><input type="radio" name="site_deja_cree" value="Oui"> Oui</label><label class="radio-pill"><input type="radio" name="site_deja_cree" value="Non"> Non</label></div></div>
+              <div class="field"><label>Nom de domaine déjà créé ?</label><div class="radio-row"><label class="radio-pill"><input type="radio" name="domaine_deja_cree" value="Oui"> Oui</label><label class="radio-pill"><input type="radio" name="domaine_deja_cree" value="Non"> Non</label></div></div>
+              <div class="field"><label for="domaine_souhaite">Nom de domaine souhaité</label><input id="domaine_souhaite" name="nom_domaine_souhaite" type="text" placeholder="ex : monentreprise.fr"></div>
+              <div class="field"><label for="url_actuelle">URL actuelle si elle existe</label><input id="url_actuelle" name="url_actuelle" type="url" placeholder="https://..."></div>
+            </div>
+            <p class="note">La disponibilité du nom de domaine pourra être vérifiée après réception du formulaire.</p>
+          </section>
+
+          <section class="form-section" id="objectif">
+            <div class="form-head"><div><h3>Objectif de l’entreprise</h3><p>Cette partie sert à comprendre votre positionnement et les messages à faire passer.</p></div><span class="step-num">04</span></div>
+            <div class="grid-2">
+              <div class="field"><label for="proposition">Que proposez-vous exactement ?</label><textarea id="proposition" name="que_proposez_vous"></textarea></div>
+              <div class="field"><label for="description">Comment décririez-vous votre entreprise en quelques phrases ?</label><textarea id="description" name="description_entreprise"></textarea></div>
+              <div class="field"><label for="pourquoi_creation">Pourquoi avez-vous créé cette entreprise ?</label><textarea id="pourquoi_creation" name="pourquoi_creation_entreprise"></textarea></div>
+              <div class="field"><label for="messages_atouts">Quels messages et atouts vos clients doivent-ils percevoir ?</label><textarea id="messages_atouts" name="messages_importants_atouts" placeholder="Rapidité, qualité, prix, proximité, expérience…"></textarea></div>
+            </div>
+            <div class="field" style="margin-top:14px;">
+              <label>Actuellement, comment vos clients peuvent-ils vous trouver ?</label>
+              <div class="checks">
+                <label class="check"><input type="checkbox" name="canaux_clients[]" value="Bouche à oreille"> Bouche à oreille</label>
+                <label class="check"><input type="checkbox" name="canaux_clients[]" value="Google Maps"> Google Maps</label>
+                <label class="check"><input type="checkbox" name="canaux_clients[]" value="Flyer / publicité / pancarte"> Flyer / publicité / pancarte</label>
+                <label class="check"><input type="checkbox" name="canaux_clients[]" value="Référencement naturel"> Référencement naturel</label>
+                <label class="check"><input type="checkbox" name="canaux_clients[]" value="Réseaux sociaux"> Réseaux sociaux</label>
+                <label class="check"><input type="checkbox" name="canaux_clients[]" value="Publicité payante sur internet"> Publicité payante sur internet</label>
+                <label class="check"><input type="checkbox" name="canaux_clients[]" value="Article sponsorisé"> Article sponsorisé</label>
+                <label class="check"><input type="checkbox" name="canaux_clients[]" value="Autre"> Autre</label>
+              </div>
+            </div>
+            <div class="field" style="margin-top:14px;"><label for="autre_canal">Autre : précisez</label><input id="autre_canal" name="autre_canal_clients" type="text"></div>
+          </section>
+
+          <section class="form-section" id="structure">
+            <div class="form-head"><div><h3>Structure du site</h3><p>Les pages à prévoir dans le devis.</p></div><span class="step-num">05</span></div>
+            <div class="field">
+              <label>Pages souhaitées</label>
+              <div class="checks">
+                <label class="check"><input type="checkbox" name="pages_souhaitees[]" value="Page accueil" checked> Page accueil</label>
+                <label class="check"><input type="checkbox" name="pages_souhaitees[]" value="Page services / menu"> Page services ou menu restaurant</label>
+                <label class="check"><input type="checkbox" name="pages_souhaitees[]" value="Mentions légales" checked> Mentions légales</label>
+                <label class="check"><input type="checkbox" name="pages_souhaitees[]" value="Autre"> Autre page</label>
+              </div>
+            </div>
+            <div class="grid-2" style="margin-top:14px;">
+              <div class="field"><label for="nombre_services">Si pages services : combien de pages ?</label><input id="nombre_services" name="nombre_pages_services" type="text" placeholder="ex : 1 page globale ou 4 pages services"></div>
+              <div class="field"><label for="autres_pages">Autres pages souhaitées</label><input id="autres_pages" name="autres_pages_souhaitees" type="text"></div>
+            </div>
+          </section>
+
+          <section class="form-section" id="accueil">
+            <div class="form-head"><div><h3>Structure de la page d’accueil</h3><p>Les éléments importants à mettre en avant dès l’arrivée sur le site.</p></div><span class="step-num">06</span></div>
+            <div class="grid-2">
+              <div class="field"><label for="diplomes">Avez-vous des diplômes ou certificats liés à votre activité ?</label><textarea id="diplomes" name="diplomes_certificats"></textarea></div>
+              <div class="field"><label for="avis">Avez-vous déjà récolté des avis clients ?</label><textarea id="avis" name="avis_clients"></textarea></div>
+              <div class="field"><label for="faq">Avez-vous des questions fréquentes à faire apparaître en FAQ ?</label><textarea id="faq" name="questions_frequentes"></textarea></div>
+              <div class="field"><label for="paiements">Quels sont les moyens de paiement acceptés ?</label><textarea id="paiements" name="moyens_paiement" placeholder="CB, espèces, chèques, virement…"></textarea></div>
+              <div class="field" style="grid-column:1/-1;"><label for="reservation">Comment souhaitez-vous que vos clients réservent ou vous contactent ?</label><textarea id="reservation" name="mode_reservation_contact" placeholder="Appel, mail, WhatsApp, formulaire, prise de rendez-vous…"></textarea></div>
+            </div>
+          </section>
+
+          <section class="form-section" id="identite">
+            <div class="form-head"><div><h3>Identité visuelle</h3><p>Votre univers graphique, vos photos et les éléments qui doivent refléter votre marque.</p></div><span class="step-num">07</span></div>
+            <div class="grid-2">
+              <div class="field"><label>Avez-vous un logo ?</label><div class="radio-row"><label class="radio-pill"><input type="radio" name="logo" value="Oui"> Oui</label><label class="radio-pill"><input type="radio" name="logo" value="Non"> Non</label></div></div>
+              <div class="field"><label for="couleurs">Couleurs / ton souhaité pour votre marque</label><input id="couleurs" name="couleurs_ton_marque" type="text" placeholder="ex : élégant, premium, naturel, coloré…"></div>
+              <div class="field"><label for="visuels">Avez-vous des visuels de votre activité ou établissement ?</label><textarea id="visuels" name="visuels_activite"></textarea></div>
+              <div class="field"><label for="photos_personnelles">Avez-vous des photos de vous à partager ? Retouches acceptées ?</label><textarea id="photos_personnelles" name="photos_personnelles_retouche"></textarea></div>
+              <div class="field" style="grid-column:1/-1;"><label for="portfolio">Avez-vous un portfolio, Instagram, Google Drive ou lien à partager ?</label><input id="portfolio" name="portfolio_liens" type="text" placeholder="Collez vos liens ici"></div>
+            </div>
+          </section>
+
+          <div class="submit-box">
+            <div>
+              <h3 class="section-title" style="font-size:30px;margin-bottom:6px;">Envoyer ma demande</h3>
+              <p>Après réception, AGZ WEB pourra analyser vos réponses et préparer une proposition adaptée à votre projet de site vitrine.</p>
+            </div>
+            <button class="btn" type="submit"><span class="wa-dot"></span> Envoyer le formulaire</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-wrap">
+        <div class="footer-inner">
+          <div>
+            <p class="footer-title">AGZ WEB</p>
+            <p class="footer-desc">Création de sites vitrines simples et de boutiques Shopify complètes pour les entrepreneurs qui veulent un site beau, clair et vendeur.</p>
+          </div>
+          <div class="footer-col"><h4>Navigation</h4><div class="footer-links"><a href="https://www.agz-web.com/mentions-legales">Mentions légales <small>↓</small></a><a href="https://www.agz-web.com/politique-confidentialite">Politique de confidentialité <small>↓</small></a><a href="https://www.agz-web.com/cgv">CGV <small>↓</small></a></div></div>
+          <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="mailto:agz.web13@gmail.com">agz.web13@gmail.com<small>↗</small></a><a href="#formulaire">Demander un devis <small>↓</small></a></div></div>
+        </div>
+        <div class="footer-bottom"><p class="note">© <span id="year"></span> <strong>AGZ WEB</strong> — Tous droits réservés</p><a class="btn light" href="#top">↑ Retour en haut</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const header = document.querySelector("header");
+    const burger = document.getElementById("burger");
+    function setOpen(isOpen){header.dataset.open = isOpen ? "true" : "false";burger.setAttribute("aria-expanded", isOpen ? "true" : "false");}
+    burger.addEventListener("click", () => setOpen(header.dataset.open !== "true"));
+    document.querySelectorAll('.mobile-panel a[href^="#"]').forEach(a => a.addEventListener("click", () => setOpen(false)));
+    window.addEventListener("resize", () => { if (window.innerWidth > 860) setOpen(false); });
+  </script>
+</body>
+</html>
